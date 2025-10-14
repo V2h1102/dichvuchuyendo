@@ -32,7 +32,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>${not empty pageTitle ? pageTitle : 'StreamLine - Business Process Automation Platform'}</title>
+    <title>${not empty pageTitle ? pageTitle : 'MovingFurniture - Nền tảng cung cấp dịch vụ chuyển đồ'}</title>
     <style>
         /* Toàn bộ CSS của bạn giữ nguyên ở đây */
         /* CSS Reset and Base Styles */
@@ -359,14 +359,14 @@
     <div class="header-container">
         <a href="#" class="logo">
             <span>📊</span>
-            <span>${not empty companyName ? companyName : 'StreamLine'}</span>
+            <span>${not empty companyName ? companyName : 'MovingFurniture'}</span>
         </a>
 
         <nav class="nav-menu">
-            <li><a href="#features">Features</a></li>
-            <li><a href="#pricing">Pricing</a></li>
-            <li><a href="#about">About</a></li>
-            <li><a href="#contact">Contact</a></li>
+            <li><a href="#features">Tính năng</a></li>
+            <li><a href="#pricing">Bảng Giá</a></li>
+            <li><a href="#about">Về chúng tôi</a></li>
+            <li><a href="#contact">Liên Hệ</a></li>
         </nav>
 
         <div class="header-actions">
@@ -385,9 +385,9 @@
                             </c:forEach>
                         </c:when>
                         <c:otherwise>
-                            <a href="#" class="dropdown-item">New user registered</a>
-                            <a href="#" class="dropdown-item">System update available</a>
-                            <a href="#" class="dropdown-item">Monthly report ready</a>
+                            <a href="#" class="dropdown-item">Người dùng mới đăng kí</a>
+                            <a href="#" class="dropdown-item">Bản cập nhật hệ thống có sẵn</a>
+                            <a href="#" class="dropdown-item">Báo cáo hàng tháng đã sẵn sàng</a>
                         </c:otherwise>
                     </c:choose>
                 </div>
@@ -409,63 +409,65 @@
                         <div style="font-weight: 600;">${not empty sessionScope.user.fullName ? sessionScope.user.fullName : 'John Doe'}</div>
                         <div style="font-size: 0.875rem; color: var(--text-secondary);">${not empty sessionScope.user.userType ? sessionScope.user.userType : 'Administrator'}</div>
                     </div>
-                    <a href="${pageContext.request.contextPath}/profile" class="dropdown-item">👤 Profile</a>
-                    <a href="${pageContext.request.contextPath}/settings" class="dropdown-item">⚙️ Settings</a>
+                    <a href="${pageContext.request.contextPath}/profile" class="dropdown-item">👤 Hồ sơ</a>
+                    <a href="${pageContext.request.contextPath}/settings" class="dropdown-item">⚙️ Cài đặt</a>
                     <form action="${pageContext.request.contextPath}/logout" method="post">
-                        <button type="submit" class="dropdown-item" style="width:100%; text-align:left; border:none; background:none; cursor:pointer;">🚪 Logout</button>
+                        <button type="submit" class="dropdown-item" style="width:100%; text-align:left; border:none; background:none; cursor:pointer;">🚪 Đăng xuất</button>
                     </form>
                 </div>
             </div>
 
-            <a href="${pageContext.request.contextPath}/booking.jsp" class="btn btn-primary">Get Started</a>
+            <a href="${pageContext.request.contextPath}/booking.jsp" class="btn btn-primary">Bắt đầu</a>
         </div>
     </div>
 </header>
 
 <section class="hero">
     <div class="hero-container">
-        <h1>${not empty heroTitle ? heroTitle : 'Streamline Your Business Operations'}</h1>
-        <p>${not empty heroDescription ? heroDescription : 'Automate workflows, manage teams, and boost productivity with our comprehensive business platform designed for modern enterprises.'}</p>
+        <h1>${not empty heroTitle ? heroTitle : 'Moving Furniture Nền tảng vận chuyển '}</h1>
+        <p>${not empty heroDescription ? heroDescription : ''}</p>
         <div class="hero-actions">
-            <a href="#" class="btn btn-primary">Start Free Trial</a>
-            <a href="#" class="btn btn-secondary">Watch Demo</a>
+
+
         </div>
     </div>
 </section>
 
 <section class="features" id="features">
     <div class="features-container">
-        <h2>Powerful Features for Your Business</h2>
+        <h2>Các tính năng mạnh mẽ cho doanh nghiệp của bạn</h2>
         <div class="features-grid">
             <div class="feature-card">
                 <div class="feature-icon">⚡</div>
-                <h3>Workflow Automation</h3>
-                <p>Automate repetitive tasks and streamline your business processes with our intelligent workflow engine.</p>
+                <h3>Tự động hóa quy trình làm việc
+                </h3>
+                <p>Tự động hóa các tác vụ lập đi lặp lại và hợp lý hóa quy trình kinh doanh của bạn bằng công cụ quy trình
+                    làm việc thông mình của chúng tôi.</p>
             </div>
             <div class="feature-card">
                 <div class="feature-icon">👥</div>
-                <h3>Team Collaboration</h3>
-                <p>Enable seamless collaboration across teams with real-time communication and project management tools.</p>
+                <h3>Hợp tác nhóm</h3>
+                <p>Cho phép cộng tác liền mạch giữa các nhóm với các công cụ quản lý dự án và giao tiếp thời giản thực.</p>
             </div>
             <div class="feature-card">
                 <div class="feature-icon">📊</div>
-                <h3>Analytics & Insights</h3>
-                <p>Get actionable insights with comprehensive analytics and customizable dashboards for data-driven decisions.</p>
+                <h3>Phân tích & Thông tin chỉ tiết</h3>
+                <p>Nhận thông tin chỉ tiết hữu ích với phân tích toàn diện và bằng thông tin có thể tùy chỉnh để đưa ra quyết định dựa trên dữ liệu</p>
             </div>
             <div class="feature-card">
                 <div class="feature-icon">🔒</div>
-                <h3>Enterprise Security</h3>
-                <p>Protect your data with enterprise-grade security, compliance features, and advanced access controls.</p>
+                <h3>Bảo mật doanh nghiệp</h3>
+                <p>Bảo vệ dữ liệu của bạn bằng tỉnh năng báo mặt cấp doanh nghiệp, các tỉnh năng tuân thủ và kiểm soát truy cập năng cao.</p>
             </div>
             <div class="feature-card">
                 <div class="feature-icon">🔗</div>
-                <h3>API Integration</h3>
-                <p>Connect with your existing tools through our robust API and extensive integration marketplace.</p>
+                <h3>Tích hợp API</h3>
+                <p>Kết nối với các công cụ hiện có của bạn thông qua API mạnh mẽ và thị trường tích hợp rộng lớn của chúng tôi.</p>
             </div>
             <div class="feature-card">
                 <div class="feature-icon">📱</div>
-                <h3>Mobile Ready</h3>
-                <p>Access your business tools anywhere with our responsive design and native mobile applications.</p>
+                <h3>Sản sàng cho thiết bị di động</h3>
+                <p>Truy cập các công cụ kinh doanh của bạn ở mọi nơi với thiết kế đáp ứng và ứng dụng di động gốc của chúng tôi</p>
             </div>
         </div>
     </div>
@@ -473,7 +475,7 @@
 
 <footer class="footer">
     <div style="max-width: 1200px; margin: 0 auto; padding: 0 1rem;">
-        <p>&copy; 2025 ${not empty companyName ? companyName : 'StreamLine'}. All rights reserved.</p>
+        <p>&copy; 2025 ${not empty companyName ? companyName : 'StreamLine'}. Mọi quyền được bảo lưu.</p>
     </div>
 </footer>
 
