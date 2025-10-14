@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Book Your Move - MoveEasy</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        background: 'oklch(1 0 0)',
+                        foreground: 'oklch(0.35 0 0)',
+                        card: 'oklch(0.97 0 0)',
+                        'card-foreground': 'oklch(0.35 0 0)',
+                        primary: 'oklch(0.45 0.15 162)',
+                        'primary-foreground': 'oklch(1 0 0)',
+                        secondary: 'oklch(0.55 0.15 162)',
+                        'secondary-foreground': 'oklch(1 0 0)',
+                        muted: 'oklch(0.97 0 0)',
+                        'muted-foreground': 'oklch(0.35 0 0)',
+                        accent: 'oklch(0.55 0.15 162)',
+                        'accent-foreground': 'oklch(1 0 0)',
+                        border: 'oklch(0.9 0 0)',
+                        input: 'oklch(1 0 0)',
+                        ring: 'oklch(0.45 0.15 162 / 0.5)'
+                    }
+                }
+            }
+        }
+    </script>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+</head>
+<body class="bg-background text-foreground">
+     Header 
+    <header class="sticky top-0 z-50 w-full border-b border-border bg-background/95 backdrop-blur">
+        <div class="container mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex h-16 items-center justify-between">
+                <div class="flex items-center">
+                    <div class="flex items-center space-x-2">
+                        <div class="w-8 h-8 bg-primary rounded-lg flex items-center justify-center">
+                            <i class="fas fa-truck text-primary-foreground"></i>
+                        </div>
+                        <span class="text-xl font-bold text-foreground">MoveEasy</span>
+                    </div>
+                </div>
+                <a href="index.html" class="text-muted-foreground hover:text-foreground transition-colors">
+                    <i class="fas fa-arrow-left mr-2"></i>Back to Home
+                </a>
+            </div>
+        </div>
+    </header>
+
+     Booking Form 
+    <section class="py-12">
+        <div class="container mx-auto px-4 sm:px-6 lg:px-8 max-w-2xl">
+            <div class="text-center mb-8">
+                <h1 class="text-3xl md:text-4xl font-bold text-foreground mb-4">Book Your Move</h1>
+                <p class="text-xl text-muted-foreground">Fill out the details below to get started with your furniture move.</p>
+            </div>
+
+            <form id="booking-form" class="bg-card p-8 rounded-xl shadow-sm border border-border">
+                 Addresses 
+                <div class="grid md:grid-cols-2 gap-6 mb-6">
+                    <div>
+                        <label for="pickup-address" class="block text-sm font-medium text-card-foreground mb-2">Pick-up Address *</label>
+                        <input type="text" id="pickup-address" name="pickup-address" required 
+                               class="w-full px-4 py-3 border border-border rounded-lg focus:ring-2 focus:ring-ring focus:border-transparent bg-input text-foreground"
+                               placeholder="Enter pick-up address">
+                    </div>
+                    <div>
+                        <label for="dropoff-address" class="block text-sm font-medium text-card-foreground mb-2">Drop-off Address *</label>
+                        <input type="text" id="dropoff-address" name="dropoff-address" required 
+                               class="w-full px-4 py-3 border border-border rounded-lg focus:ring-2 focus:ring-ring focus:border-transparent bg-input text-foreground"
+                               placeholder="Enter drop-off address">
+                    </div>
+                </div>
+
+                 Number of Items 
+                <div class="mb-6">
+                    <h3 class="text-lg font-semibold text-card-foreground mb-4">Number of Items</h3>
+                    <div class="grid md:grid-cols-3 gap-4">
+                        <div>
+                            <label for="wardrobes" class="block text-sm font-medium text-card-foreground mb-2">Wardrobes</label>
+                            <input type="number" id="wardrobes" name="wardrobes" min="0" value="0" 
+                                   class="w-full px-4 py-3 border border-border rounded-lg focus:ring-2 focus:ring-ring focus:border-transparent bg-input text-foreground"
+                                   onchange="calculatePrice()">
+                        </div>
+                        <div>
+                            <label for="beds" class="block text-sm font-medium text-card-foreground mb-2">Beds</label>
+                            <input type="number" id="beds" name="beds" min="0" value="0" 
+                                   class="w-full px-4 py-3 border border-border rounded-lg focus:ring-2 focus:ring-ring focus:border-transparent bg-input text-foreground"
+                                   onchange="calculatePrice()">
+                        </div>
+                        <div>
+                            <label for="tables" class="block text-sm font-medium text-card-foreground mb-2">Tables</label>
+                            <input type="number" id="tables" name="tables" min="0" value="0" 
+                                   class="w-full px-4 py-3 border border-border rounded-lg focus:ring-2 focus:ring-ring focus:border-transparent bg-input text-foreground"
+                                   onchange="calculatePrice()">
+                        </div>
+                    </div>
+                </div>
+
+                 Voucher Code 
+                <div class="mb-6">
+                    <label for="voucher" class="block text-sm font-medium text-card-foreground mb-2">Voucher Code (Optional)</label>
+                    <input type="text" id="voucher" name="voucher" 
+                           class="w-full px-4 py-3 border border-border rounded-lg focus:ring-2 focus:ring-ring focus:border-transparent bg-input text-foreground"
+                           placeholder="Enter voucher code">
+                </div>
+
+                 Special Options 
+                <div class="mb-6">
+                    <h3 class="text-lg font-semibold text-card-foreground mb-4">Special Options</h3>
+                    <div class="space-y-3">
+                        <label class="flex items-center">
+                            <input type="checkbox" id="high-value" name="high-value" class="mr-3 h-4 w-4 text-primary focus:ring-ring border-border rounded" onchange="calculatePrice()">
+                            <span class="text-card-foreground">High-value items (fragile or expensive items) - +$50</span>
+                        </label>
+                    </div>
+                </div>
+
+                 Price Display 
+                <div class="mb-6 p-4 bg-muted/50 rounded-lg">
+                    <div class="flex justify-between items-center">
+                        <span class="text-lg font-semibold text-card-foreground">Total Price:</span>
+                        <span id="total-price" class="text-2xl font-bold text-primary">$0</span>
+                    </div>
+                    <div class="text-sm text-muted-foreground mt-2">
+                        <div>Base rate: $50</div>
+                        <div>Wardrobes: $30 each</div>
+                        <div>Beds: $40 each</div>
+                        <div>Tables: $20 each</div>
+                    </div>
+                </div>
+
+                 Order Button 
+                <button type="submit" class="w-full bg-primary hover:bg-primary/90 text-primary-foreground py-4 rounded-lg font-medium text-lg transition-colors">
+                    Proceed to Contract Details
+                </button>
+            </form>
+        </div>
+    </section>
+
+    <script>
+        function calculatePrice() {
+            const wardrobes = parseInt(document.getElementById('wardrobes').value) || 0;
+            const beds = parseInt(document.getElementById('beds').value) || 0;
+            const tables = parseInt(document.getElementById('tables').value) || 0;
+            const highValue = document.getElementById('high-value').checked;
+
+            let total = 50; // Base rate
+            total += wardrobes * 30;
+            total += beds * 40;
+            total += tables * 20;
+            
+            if (highValue) {
+                total += 50;
+            }
+
+            document.getElementById('total-price').textContent = '$' + total;
+        }
+
+        document.getElementById('booking-form').addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            // Store form data in localStorage
+            const formData = {
+                pickupAddress: document.getElementById('pickup-address').value,
+                dropoffAddress: document.getElementById('dropoff-address').value,
+                wardrobes: document.getElementById('wardrobes').value,
+                beds: document.getElementById('beds').value,
+                tables: document.getElementById('tables').value,
+                voucher: document.getElementById('voucher').value,
+                highValue: document.getElementById('high-value').checked,
+                totalPrice: document.getElementById('total-price').textContent
+            };
+            
+            localStorage.setItem('bookingData', JSON.stringify(formData));
+            window.location.href = 'contract.html';
+        });
+
+        // Calculate initial price
+        calculatePrice();
+    </script>
+</body>
+</html>

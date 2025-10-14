@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Booking Confirmed - MoveEasy</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        background: 'oklch(1 0 0)',
+                        foreground: 'oklch(0.35 0 0)',
+                        card: 'oklch(0.97 0 0)',
+                        'card-foreground': 'oklch(0.35 0 0)',
+                        primary: 'oklch(0.45 0.15 162)',
+                        'primary-foreground': 'oklch(1 0 0)',
+                        secondary: 'oklch(0.55 0.15 162)',
+                        'secondary-foreground': 'oklch(1 0 0)',
+                        muted: 'oklch(0.97 0 0)',
+                        'muted-foreground': 'oklch(0.35 0 0)',
+                        accent: 'oklch(0.55 0.15 162)',
+                        'accent-foreground': 'oklch(1 0 0)',
+                        border: 'oklch(0.9 0 0)',
+                        input: 'oklch(1 0 0)',
+                        ring: 'oklch(0.45 0.15 162 / 0.5)'
+                    }
+                }
+            }
+        }
+    </script>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+</head>
+<body class="bg-background text-foreground">
+     Header 
+    <header class="sticky top-0 z-50 w-full border-b border-border bg-background/95 backdrop-blur">
+        <div class="container mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex h-16 items-center justify-between">
+                <div class="flex items-center">
+                    <div class="flex items-center space-x-2">
+                        <div class="w-8 h-8 bg-primary rounded-lg flex items-center justify-center">
+                            <i class="fas fa-truck text-primary-foreground"></i>
+                        </div>
+                        <span class="text-xl font-bold text-foreground">MoveEasy</span>
+                    </div>
+                </div>
+                <a href="index.html" class="text-muted-foreground hover:text-foreground transition-colors">
+                    <i class="fas fa-home mr-2"></i>Back to Home
+                </a>
+            </div>
+        </div>
+    </header>
+
+     Success Section 
+    <section class="py-20">
+        <div class="container mx-auto px-4 sm:px-6 lg:px-8 max-w-2xl">
+             Success Icon and Message 
+            <div class="text-center mb-12">
+                <div class="w-24 h-24 bg-primary/10 rounded-full flex items-center justify-center mx-auto mb-6">
+                    <i class="fas fa-check text-primary text-4xl"></i>
+                </div>
+                <h1 class="text-3xl md:text-4xl font-bold text-foreground mb-4">Booking Confirmed!</h1>
+                <p class="text-xl text-muted-foreground">
+                    Thank you for choosing MoveEasy. Your furniture move has been successfully booked.
+                </p>
+            </div>
+
+             Booking Details 
+            <div class="bg-card p-8 rounded-xl shadow-sm border border-border mb-8">
+                <h2 class="text-xl font-semibold text-card-foreground mb-6">Booking Details</h2>
+                <div id="booking-details" class="space-y-4">
+                     Details will be populated by JavaScript 
+                </div>
+            </div>
+
+             Next Steps 
+            <div class="bg-card p-8 rounded-xl shadow-sm border border-border mb-8">
+                <h2 class="text-xl font-semibold text-card-foreground mb-6">What Happens Next?</h2>
+                <div class="space-y-4">
+                    <div class="flex items-start">
+                        <div class="w-8 h-8 bg-primary/10 rounded-full flex items-center justify-center mr-4 mt-1">
+                            <span class="text-primary font-semibold text-sm">1</span>
+                        </div>
+                        <div>
+                            <h3 class="font-medium text-card-foreground">Confirmation Email</h3>
+                            <p class="text-muted-foreground text-sm">You'll receive a confirmation email with all booking details within 5 minutes.</p>
+                        </div>
+                    </div>
+                    <div class="flex items-start">
+                        <div class="w-8 h-8 bg-primary/10 rounded-full flex items-center justify-center mr-4 mt-1">
+                            <span class="text-primary font-semibold text-sm">2</span>
+                        </div>
+                        <div>
+                            <h3 class="font-medium text-card-foreground">Team Assignment</h3>
+                            <p class="text-muted-foreground text-sm">Our team will be assigned and will contact you 24 hours before your move.</p>
+                        </div>
+                    </div>
+                    <div class="flex items-start">
+                        <div class="w-8 h-8 bg-primary/10 rounded-full flex items-center justify-center mr-4 mt-1">
+                            <span class="text-primary font-semibold text-sm">3</span>
+                        </div>
+                        <div>
+                            <h3 class="font-medium text-card-foreground">Moving Day</h3>
+                            <p class="text-muted-foreground text-sm">Our professional team will arrive on time and handle your furniture with care.</p>
+                        </div>
+                    </div>
+                    <div class="flex items-start">
+                        <div class="w-8 h-8 bg-primary/10 rounded-full flex items-center justify-center mr-4 mt-1">
+                            <span class="text-primary font-semibold text-sm">4</span>
+                        </div>
+                        <div>
+                            <h3 class="font-medium text-card-foreground">Final Payment</h3>
+                            <p class="text-muted-foreground text-sm">Pay the remaining balance upon successful completion of your move.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+             Contact Information 
+            <div class="bg-card p-8 rounded-xl shadow-sm border border-border mb-8">
+                <h2 class="text-xl font-semibold text-card-foreground mb-6">Need Help?</h2>
+                <div class="grid md:grid-cols-2 gap-6">
+                    <div class="flex items-center">
+                        <i class="fas fa-phone text-primary mr-3 text-xl"></i>
+                        <div>
+                            <div class="font-medium text-card-foreground">Call Us</div>
+                            <div class="text-muted-foreground">+1 (555) 123-4567</div>
+                        </div>
+                    </div>
+                    <div class="flex items-center">
+                        <i class="fas fa-envelope text-primary mr-3 text-xl"></i>
+                        <div>
+                            <div class="font-medium text-card-foreground">Email Us</div>
+                            <div class="text-muted-foreground">support@moveeasy.com</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+             Action Buttons 
+            <div class="flex flex-col sm:flex-row gap-4 justify-center">
+                <a href="index.html" class="bg-primary hover:bg-primary/90 text-primary-foreground px-8 py-3 rounded-lg font-medium transition-colors text-center">
+                    Back to Home
+                </a>
+                <button onclick="window.print()" class="border border-border hover:bg-muted text-foreground px-8 py-3 rounded-lg font-medium transition-colors">
+                    <i class="fas fa-print mr-2"></i>
+                    Print Details
+                </button>
+            </div>
+        </div>
+    </section>
+
+    <script>
+        // Load all booking data
+        const bookingData = JSON.parse(localStorage.getItem('bookingData') || '{}');
+        const contractData = JSON.parse(localStorage.getItem('contractData') || '{}');
+        const paymentData = JSON.parse(localStorage.getItem('paymentData') || '{}');
+        
+        // Generate booking reference
+        const bookingRef = 'ME' + Date.now().toString().slice(-6);
+        
+        // Populate booking details
+        const detailsDiv = document.getElementById('booking-details');
+        const totalPrice = parseInt(bookingData.totalPrice?.replace('$', '') || '0');
+        const depositAmount = Math.round(totalPrice / 2);
+        
+        detailsDiv.innerHTML = `
+            <div class="grid md:grid-cols-2 gap-4">
+                <div class="space-y-3">
+                    <div><span class="text-muted-foreground">Booking Reference:</span> <span class="font-mono font-medium">${bookingRef}</span></div>
+                    <div><span class="text-muted-foreground">Customer Name:</span> <span class="font-medium">${contractData.customerName || 'N/A'}</span></div>
+                    <div><span class="text-muted-foreground">Phone:</span> <span class="font-medium">${contractData.customerPhone || 'N/A'}</span></div>
+                    <div><span class="text-muted-foreground">Email:</span> <span class="font-medium">${contractData.customerEmail || 'N/A'}</span></div>
+                    <div><span class="text-muted-foreground">Move Date:</span> <span class="font-medium">${contractData.moveDate || 'N/A'}</span></div>
+                </div>
+                <div class="space-y-3">
+                    <div><span class="text-muted-foreground">Pick-up:</span> <span class="font-medium">${bookingData.pickupAddress || 'N/A'}</span></div>
+                    <div><span class="text-muted-foreground">Drop-off:</span> <span class="font-medium">${bookingData.dropoffAddress || 'N/A'}</span></div>
+                    <div><span class="text-muted-foreground">Items:</span> <span class="font-medium">${bookingData.wardrobes || 0} wardrobes, ${bookingData.beds || 0} beds, ${bookingData.tables || 0} tables</span></div>
+                    <div><span class="text-muted-foreground">Total Cost:</span> <span class="font-medium">${bookingData.totalPrice || '$0'}</span></div>
+                    <div><span class="text-muted-foreground">Deposit Paid:</span> <span class="font-medium text-primary">$${depositAmount}</span></div>
+                </div>
+            </div>
+        `;
+
+        // Store booking reference for future use
+        localStorage.setItem('bookingReference', bookingRef);
+    </script>
+</body>
+</html>

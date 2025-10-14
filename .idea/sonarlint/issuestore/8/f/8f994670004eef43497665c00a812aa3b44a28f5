@@ -1,0 +1,19 @@
+
+b
+java:S1192("GDefine a constant instead of duplicating this literal "rating" 3 times.(“€¾®şÿÿÿÿ
+e
+java:S1192*"JDefine a constant instead of duplicating this literal "published" 3 times.(½ÄÎÊùÿÿÿÿ
+h
+java:S1192&"MDefine a constant instead of duplicating this literal "customerName" 3 times.(ÆÉ›ûøÿÿÿÿ
+^
+java:S1192'"HDefine a constant instead of duplicating this literal "service" 3 times.(å¸¡°
+^
+java:S1192)"HDefine a constant instead of duplicating this literal "comment" 3 times.(« °¬
+—
+java:S1186I"€Add a nested comment explaining why this method is empty, throw an UnsupportedOperationException or complete the implementation.(‚“¶î
+P
+java:S1161":Add the "@Override" annotation above this method signature( Üó
+P
+java:S1161":Add the "@Override" annotation above this method signature(ÅµÄè
+P
+java:S1161I":Add the "@Override" annotation above this method signature(‚“¶î

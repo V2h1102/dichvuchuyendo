@@ -1,0 +1,17 @@
+
+Qphp:S105"EReplace all tab characters in this file by sequences of white-spaces.
+l	php:S1808 "RRemove all space after the opening parenthesis and before the closing parenthesis.(ÅªĞ›ÿÿÿÿÿ
+l	php:S1808!"RRemove all space after the opening parenthesis and before the closing parenthesis.(€à¶£ÿÿÿÿÿ
+l	php:S1808""RRemove all space after the opening parenthesis and before the closing parenthesis.(±²¹æøÿÿÿÿ
+l	php:S1808#"RRemove all space after the opening parenthesis and before the closing parenthesis.(­¾›¦ÿÿÿÿÿ
+l	php:S1808'"RRemove all space after the opening parenthesis and before the closing parenthesis.(‚İæÜüÿÿÿÿ
+D	php:S1808("/Remove all space after the opening parenthesis.(¿¡®‚
+l	php:S1808."RRemove all space after the opening parenthesis and before the closing parenthesis.(‚İæÜüÿÿÿÿ
+l	php:S1808B"RRemove all space after the opening parenthesis and before the closing parenthesis.(õ”ñüÿÿÿÿ
+g	php:S1808E"RRemove all space after the opening parenthesis and before the closing parenthesis.(€…¢ˆ
+k	php:S1808'"QPut exactly one space between the "function" keyword and the opening parenthesis.(‚İæÜüÿÿÿÿ
+k	php:S1808."QPut exactly one space between the "function" keyword and the opening parenthesis.(‚İæÜüÿÿÿÿ
+F	php:S1172'",Remove the unused function parameter "$row".(‚İæÜüÿÿÿÿ
+F	php:S1172.",Remove the unused function parameter "$row".(‚İæÜüÿÿÿÿ
+@	php:S2003B"&Replace "require" with "require_once".(õ”ñüÿÿÿÿ
+f	php:S4833B"LReplace "require" with namespace import mechanism through the "use" keyword.(õ”ñüÿÿÿÿ

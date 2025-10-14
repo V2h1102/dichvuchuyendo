@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contract Details - MoveEasy</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        background: 'oklch(1 0 0)',
+                        foreground: 'oklch(0.35 0 0)',
+                        card: 'oklch(0.97 0 0)',
+                        'card-foreground': 'oklch(0.35 0 0)',
+                        primary: 'oklch(0.45 0.15 162)',
+                        'primary-foreground': 'oklch(1 0 0)',
+                        secondary: 'oklch(0.55 0.15 162)',
+                        'secondary-foreground': 'oklch(1 0 0)',
+                        muted: 'oklch(0.97 0 0)',
+                        'muted-foreground': 'oklch(0.35 0 0)',
+                        accent: 'oklch(0.55 0.15 162)',
+                        'accent-foreground': 'oklch(1 0 0)',
+                        border: 'oklch(0.9 0 0)',
+                        input: 'oklch(1 0 0)',
+                        ring: 'oklch(0.45 0.15 162 / 0.5)'
+                    }
+                }
+            }
+        }
+    </script>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+</head>
+<body class="bg-background text-foreground">
+     Header 
+    <header class="sticky top-0 z-50 w-full border-b border-border bg-background/95 backdrop-blur">
+        <div class="container mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex h-16 items-center justify-between">
+                <div class="flex items-center">
+                    <div class="flex items-center space-x-2">
+                        <div class="w-8 h-8 bg-primary rounded-lg flex items-center justify-center">
+                            <i class="fas fa-truck text-primary-foreground"></i>
+                        </div>
+                        <span class="text-xl font-bold text-foreground">MoveEasy</span>
+                    </div>
+                </div>
+                <a href="booking.html" class="text-muted-foreground hover:text-foreground transition-colors">
+                    <i class="fas fa-arrow-left mr-2"></i>Back to Booking
+                </a>
+            </div>
+        </div>
+    </header>
+
+     Contract Information 
+    <section class="py-12">
+        <div class="container mx-auto px-4 sm:px-6 lg:px-8 max-w-2xl">
+            <div class="text-center mb-8">
+                <h1 class="text-3xl md:text-4xl font-bold text-foreground mb-4">Contract Information</h1>
+                <p class="text-xl text-muted-foreground">Please review your booking details and provide additional information.</p>
+            </div>
+
+             Booking Summary 
+            <div class="bg-card p-6 rounded-xl shadow-sm border border-border mb-8">
+                <h2 class="text-xl font-semibold text-card-foreground mb-4">Booking Summary</h2>
+                <div id="booking-summary" class="space-y-3">
+                     Summary will be populated by JavaScript 
+                </div>
+            </div>
+
+             Customer Information Form 
+            <form id="contract-form" class="bg-card p-8 rounded-xl shadow-sm border border-border">
+                <h2 class="text-xl font-semibold text-card-foreground mb-6">Customer Information</h2>
+                
+                <div class="grid md:grid-cols-2 gap-6 mb-6">
+                    <div>
+                        <label for="customer-name" class="block text-sm font-medium text-card-foreground mb-2">Customer Name *</label>
+                        <input type="text" id="customer-name" name="customer-name" required 
+                               class="w-full px-4 py-3 border border-border rounded-lg focus:ring-2 focus:ring-ring focus:border-transparent bg-input text-foreground"
+                               placeholder="Enter your full name">
+                    </div>
+                    <div>
+                        <label for="customer-phone" class="block text-sm font-medium text-card-foreground mb-2">Phone Number *</label>
+                        <input type="tel" id="customer-phone" name="customer-phone" required 
+                               class="w-full px-4 py-3 border border-border rounded-lg focus:ring-2 focus:ring-ring focus:border-transparent bg-input text-foreground"
+                               placeholder="Enter your phone number">
+                    </div>
+                </div>
+
+                <div class="grid md:grid-cols-2 gap-6 mb-6">
+                    <div>
+                        <label for="customer-email" class="block text-sm font-medium text-card-foreground mb-2">Email Address *</label>
+                        <input type="email" id="customer-email" name="customer-email" required 
+                               class="w-full px-4 py-3 border border-border rounded-lg focus:ring-2 focus:ring-ring focus:border-transparent bg-input text-foreground"
+                               placeholder="Enter your email address">
+                    </div>
+                    <div>
+                        <label for="receiver-phone" class="block text-sm font-medium text-card-foreground mb-2">Receiver's Phone Number</label>
+                        <input type="tel" id="receiver-phone" name="receiver-phone" 
+                               class="w-full px-4 py-3 border border-border rounded-lg focus:ring-2 focus:ring-ring focus:border-transparent bg-input text-foreground"
+                               placeholder="Enter receiver's phone number">
+                    </div>
+                </div>
+
+                <div class="mb-6">
+                    <label for="move-date" class="block text-sm font-medium text-card-foreground mb-2">Preferred Move Date *</label>
+                    <input type="date" id="move-date" name="move-date" required 
+                           class="w-full px-4 py-3 border border-border rounded-lg focus:ring-2 focus:ring-ring focus:border-transparent bg-input text-foreground">
+                </div>
+
+                <div class="mb-6">
+                    <label for="special-instructions" class="block text-sm font-medium text-card-foreground mb-2">Special Instructions (Optional)</label>
+                    <textarea id="special-instructions" name="special-instructions" rows="4" 
+                              class="w-full px-4 py-3 border border-border rounded-lg focus:ring-2 focus:ring-ring focus:border-transparent bg-input text-foreground"
+                              placeholder="Any special instructions or notes for the movers"></textarea>
+                </div>
+
+                 Terms and Conditions 
+                <div class="mb-6">
+                    <label class="flex items-start">
+                        <input type="checkbox" id="terms" name="terms" required class="mr-3 h-4 w-4 text-primary focus:ring-ring border-border rounded mt-1">
+                        <span class="text-card-foreground text-sm">
+                            I agree to the <a href="#" class="text-primary hover:underline">Terms and Conditions</a> and 
+                            <a href="#" class="text-primary hover:underline">Privacy Policy</a>. I understand that a 50% deposit is required to confirm the booking.
+                        </span>
+                    </label>
+                </div>
+
+                 Proceed to Payment Button 
+                <button type="submit" class="w-full bg-primary hover:bg-primary/90 text-primary-foreground py-4 rounded-lg font-medium text-lg transition-colors">
+                    Proceed to Payment
+                </button>
+            </form>
+        </div>
+    </section>
+
+    <script>
+        // Load booking data from localStorage
+        const bookingData = JSON.parse(localStorage.getItem('bookingData') || '{}');
+        
+        // Populate booking summary
+        const summaryDiv = document.getElementById('booking-summary');
+        if (bookingData.pickupAddress) {
+            summaryDiv.innerHTML = `
+                <div class="flex justify-between"><span class="text-muted-foreground">Pick-up Address:</span><span class="font-medium">${bookingData.pickupAddress}</span></div>
+                <div class="flex justify-between"><span class="text-muted-foreground">Drop-off Address:</span><span class="font-medium">${bookingData.dropoffAddress}</span></div>
+                <div class="flex justify-between"><span class="text-muted-foreground">Wardrobes:</span><span class="font-medium">${bookingData.wardrobes}</span></div>
+                <div class="flex justify-between"><span class="text-muted-foreground">Beds:</span><span class="font-medium">${bookingData.beds}</span></div>
+                <div class="flex justify-between"><span class="text-muted-foreground">Tables:</span><span class="font-medium">${bookingData.tables}</span></div>
+                <div class="flex justify-between"><span class="text-muted-foreground">High-value items:</span><span class="font-medium">${bookingData.highValue ? 'Yes' : 'No'}</span></div>
+                <div class="border-t border-border pt-3 mt-3">
+                    <div class="flex justify-between text-lg font-semibold"><span>Total Price:</span><span class="text-primary">${bookingData.totalPrice}</span></div>
+                    <div class="text-sm text-muted-foreground mt-1">50% deposit required: ${bookingData.totalPrice ? '$' + (parseInt(bookingData.totalPrice.replace('$', '')) / 2) : '$0'}</div>
+                </div>
+            `;
+        }
+
+        document.getElementById('contract-form').addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            // Store contract data
+            const contractData = {
+                customerName: document.getElementById('customer-name').value,
+                customerPhone: document.getElementById('customer-phone').value,
+                customerEmail: document.getElementById('customer-email').value,
+                receiverPhone: document.getElementById('receiver-phone').value,
+                moveDate: document.getElementById('move-date').value,
+                specialInstructions: document.getElementById('special-instructions').value
+            };
+            
+            localStorage.setItem('contractData', JSON.stringify(contractData));
+            window.location.href = 'payment.html';
+        });
+
+        // Set minimum date to today
+        document.getElementById('move-date').min = new Date().toISOString().split('T')[0];
+    </script>
+</body>
+</html>

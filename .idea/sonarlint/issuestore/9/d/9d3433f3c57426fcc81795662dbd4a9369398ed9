@@ -1,0 +1,17 @@
+
+d
+java:S1192:"GDefine a constant instead of duplicating this literal "amount" 3 times.(ϊΚƒγ8Υύοβ3
+e
+java:S11929"HDefine a constant instead of duplicating this literal "service" 3 times.(ωΨϊ8Χύοβ3
+i
+java:S1192;"GDefine a constant instead of duplicating this literal "status" 3 times.(Αα¦¤όÿÿÿÿ8Χύοβ3
+k
+java:S11928"IDefine a constant instead of duplicating this literal "customer" 3 times.(Αή¬Λϊÿÿÿÿ8Ψύοβ3
+
+java:S1186X"€Add a nested comment explaining why this method is empty, throw an UnsupportedOperationException or complete the implementation.(‚“¶ξ8¨ÿοβ3
+W
+java:S1161":Add the "@Override" annotation above this method signature( άσ8Ζÿοβ3
+W
+java:S1161":Add the "@Override" annotation above this method signature(ΕµΔθ8Οÿοβ3
+W
+java:S1161X":Add the "@Override" annotation above this method signature(‚“¶ξ8πÿοβ3

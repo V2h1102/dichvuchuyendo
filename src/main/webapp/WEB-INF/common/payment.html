@@ -1,0 +1,255 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Payment - MoveEasy</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        background: 'oklch(1 0 0)',
+                        foreground: 'oklch(0.35 0 0)',
+                        card: 'oklch(0.97 0 0)',
+                        'card-foreground': 'oklch(0.35 0 0)',
+                        primary: 'oklch(0.45 0.15 162)',
+                        'primary-foreground': 'oklch(1 0 0)',
+                        secondary: 'oklch(0.55 0.15 162)',
+                        'secondary-foreground': 'oklch(1 0 0)',
+                        muted: 'oklch(0.97 0 0)',
+                        'muted-foreground': 'oklch(0.35 0 0)',
+                        accent: 'oklch(0.55 0.15 162)',
+                        'accent-foreground': 'oklch(1 0 0)',
+                        border: 'oklch(0.9 0 0)',
+                        input: 'oklch(1 0 0)',
+                        ring: 'oklch(0.45 0.15 162 / 0.5)'
+                    }
+                }
+            }
+        }
+    </script>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+</head>
+<body class="bg-background text-foreground">
+     Header 
+    <header class="sticky top-0 z-50 w-full border-b border-border bg-background/95 backdrop-blur">
+        <div class="container mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex h-16 items-center justify-between">
+                <div class="flex items-center">
+                    <div class="flex items-center space-x-2">
+                        <div class="w-8 h-8 bg-primary rounded-lg flex items-center justify-center">
+                            <i class="fas fa-truck text-primary-foreground"></i>
+                        </div>
+                        <span class="text-xl font-bold text-foreground">MoveEasy</span>
+                    </div>
+                </div>
+                <a href="contract.html" class="text-muted-foreground hover:text-foreground transition-colors">
+                    <i class="fas fa-arrow-left mr-2"></i>Back to Contract
+                </a>
+            </div>
+        </div>
+    </header>
+
+     Payment Section 
+    <section class="py-12">
+        <div class="container mx-auto px-4 sm:px-6 lg:px-8 max-w-2xl">
+            <div class="text-center mb-8">
+                <h1 class="text-3xl md:text-4xl font-bold text-foreground mb-4">Payment & Deposit</h1>
+                <p class="text-xl text-muted-foreground">Complete your booking with a 50% deposit payment.</p>
+            </div>
+
+             Payment Summary 
+            <div class="bg-card p-6 rounded-xl shadow-sm border border-border mb-8">
+                <h2 class="text-xl font-semibold text-card-foreground mb-4">Payment Summary</h2>
+                <div id="payment-summary" class="space-y-3">
+                     Summary will be populated by JavaScript 
+                </div>
+            </div>
+
+             Payment Method Selection 
+            <div class="bg-card p-8 rounded-xl shadow-sm border border-border mb-8">
+                <h2 class="text-xl font-semibold text-card-foreground mb-6">Select Payment Method</h2>
+                
+                <div class="space-y-4">
+                    <label class="flex items-center p-4 border border-border rounded-lg cursor-pointer hover:bg-muted/30 transition-colors">
+                        <input type="radio" name="payment-method" value="credit-card" class="mr-4 h-4 w-4 text-primary focus:ring-ring border-border" checked>
+                        <div class="flex items-center">
+                            <i class="fas fa-credit-card text-primary mr-3 text-xl"></i>
+                            <div>
+                                <div class="font-medium text-card-foreground">Credit Card</div>
+                                <div class="text-sm text-muted-foreground">Visa, Mastercard, American Express</div>
+                            </div>
+                        </div>
+                    </label>
+
+                    <label class="flex items-center p-4 border border-border rounded-lg cursor-pointer hover:bg-muted/30 transition-colors">
+                        <input type="radio" name="payment-method" value="bank-transfer" class="mr-4 h-4 w-4 text-primary focus:ring-ring border-border">
+                        <div class="flex items-center">
+                            <i class="fas fa-university text-primary mr-3 text-xl"></i>
+                            <div>
+                                <div class="font-medium text-card-foreground">Bank Transfer</div>
+                                <div class="text-sm text-muted-foreground">Direct bank transfer</div>
+                            </div>
+                        </div>
+                    </label>
+
+                    <label class="flex items-center p-4 border border-border rounded-lg cursor-pointer hover:bg-muted/30 transition-colors">
+                        <input type="radio" name="payment-method" value="paypal" class="mr-4 h-4 w-4 text-primary focus:ring-ring border-border">
+                        <div class="flex items-center">
+                            <i class="fab fa-paypal text-primary mr-3 text-xl"></i>
+                            <div>
+                                <div class="font-medium text-card-foreground">PayPal</div>
+                                <div class="text-sm text-muted-foreground">Pay with your PayPal account</div>
+                            </div>
+                        </div>
+                    </label>
+                </div>
+            </div>
+
+             Credit Card Form (shown by default) 
+            <form id="payment-form" class="bg-card p-8 rounded-xl shadow-sm border border-border">
+                <div id="credit-card-form">
+                    <h3 class="text-lg font-semibold text-card-foreground mb-6">Credit Card Information</h3>
+                    
+                    <div class="mb-6">
+                        <label for="card-number" class="block text-sm font-medium text-card-foreground mb-2">Card Number *</label>
+                        <input type="text" id="card-number" name="card-number" required 
+                               class="w-full px-4 py-3 border border-border rounded-lg focus:ring-2 focus:ring-ring focus:border-transparent bg-input text-foreground"
+                               placeholder="1234 5678 9012 3456" maxlength="19">
+                    </div>
+
+                    <div class="grid md:grid-cols-3 gap-6 mb-6">
+                        <div class="md:col-span-2">
+                            <label for="card-name" class="block text-sm font-medium text-card-foreground mb-2">Cardholder Name *</label>
+                            <input type="text" id="card-name" name="card-name" required 
+                                   class="w-full px-4 py-3 border border-border rounded-lg focus:ring-2 focus:ring-ring focus:border-transparent bg-input text-foreground"
+                                   placeholder="John Doe">
+                        </div>
+                        <div>
+                            <label for="card-cvv" class="block text-sm font-medium text-card-foreground mb-2">CVV *</label>
+                            <input type="text" id="card-cvv" name="card-cvv" required 
+                                   class="w-full px-4 py-3 border border-border rounded-lg focus:ring-2 focus:ring-ring focus:border-transparent bg-input text-foreground"
+                                   placeholder="123" maxlength="4">
+                        </div>
+                    </div>
+
+                    <div class="grid md:grid-cols-2 gap-6 mb-6">
+                        <div>
+                            <label for="card-month" class="block text-sm font-medium text-card-foreground mb-2">Expiry Month *</label>
+                            <select id="card-month" name="card-month" required 
+                                    class="w-full px-4 py-3 border border-border rounded-lg focus:ring-2 focus:ring-ring focus:border-transparent bg-input text-foreground">
+                                <option value="">Select Month</option>
+                                <option value="01">01 - January</option>
+                                <option value="02">02 - February</option>
+                                <option value="03">03 - March</option>
+                                <option value="04">04 - April</option>
+                                <option value="05">05 - May</option>
+                                <option value="06">06 - June</option>
+                                <option value="07">07 - July</option>
+                                <option value="08">08 - August</option>
+                                <option value="09">09 - September</option>
+                                <option value="10">10 - October</option>
+                                <option value="11">11 - November</option>
+                                <option value="12">12 - December</option>
+                            </select>
+                        </div>
+                        <div>
+                            <label for="card-year" class="block text-sm font-medium text-card-foreground mb-2">Expiry Year *</label>
+                            <select id="card-year" name="card-year" required 
+                                    class="w-full px-4 py-3 border border-border rounded-lg focus:ring-2 focus:ring-ring focus:border-transparent bg-input text-foreground">
+                                <option value="">Select Year</option>
+                            </select>
+                        </div>
+                    </div>
+                </div>
+
+                 Security Notice 
+                <div class="bg-muted/50 p-4 rounded-lg mb-6">
+                    <div class="flex items-center">
+                        <i class="fas fa-shield-alt text-primary mr-3"></i>
+                        <div class="text-sm text-card-foreground">
+                            <div class="font-medium">Secure Payment</div>
+                            <div class="text-muted-foreground">Your payment information is encrypted and secure.</div>
+                        </div>
+                    </div>
+                </div>
+
+                 Complete Payment Button 
+                <button type="submit" class="w-full bg-primary hover:bg-primary/90 text-primary-foreground py-4 rounded-lg font-medium text-lg transition-colors">
+                    <i class="fas fa-lock mr-2"></i>
+                    Complete Payment
+                </button>
+            </form>
+        </div>
+    </section>
+
+    <script>
+        // Load booking and contract data
+        const bookingData = JSON.parse(localStorage.getItem('bookingData') || '{}');
+        const contractData = JSON.parse(localStorage.getItem('contractData') || '{}');
+        
+        // Calculate deposit amount
+        const totalPrice = parseInt(bookingData.totalPrice?.replace('$', '') || '0');
+        const depositAmount = Math.round(totalPrice / 2);
+        
+        // Populate payment summary
+        const summaryDiv = document.getElementById('payment-summary');
+        summaryDiv.innerHTML = `
+            <div class="flex justify-between"><span class="text-muted-foreground">Customer:</span><span class="font-medium">${contractData.customerName || 'N/A'}</span></div>
+            <div class="flex justify-between"><span class="text-muted-foreground">Move Date:</span><span class="font-medium">${contractData.moveDate || 'N/A'}</span></div>
+            <div class="flex justify-between"><span class="text-muted-foreground">Total Service Cost:</span><span class="font-medium">${bookingData.totalPrice || '$0'}</span></div>
+            <div class="border-t border-border pt-3 mt-3">
+                <div class="flex justify-between text-lg font-semibold"><span>Deposit Amount (50%):</span><span class="text-primary">$${depositAmount}</span></div>
+                <div class="text-sm text-muted-foreground mt-1">Remaining balance due on completion: $${totalPrice - depositAmount}</div>
+            </div>
+        `;
+
+        // Populate year dropdown
+        const yearSelect = document.getElementById('card-year');
+        const currentYear = new Date().getFullYear();
+        for (let i = 0; i < 10; i++) {
+            const year = currentYear + i;
+            const option = document.createElement('option');
+            option.value = year;
+            option.textContent = year;
+            yearSelect.appendChild(option);
+        }
+
+        // Format card number input
+        document.getElementById('card-number').addEventListener('input', function(e) {
+            let value = e.target.value.replace(/\s/g, '').replace(/[^0-9]/gi, '');
+            let formattedValue = value.match(/.{1,4}/g)?.join(' ') || value;
+            e.target.value = formattedValue;
+        });
+
+        // Handle payment method selection
+        document.querySelectorAll('input[name="payment-method"]').forEach(radio => {
+            radio.addEventListener('change', function() {
+                const creditCardForm = document.getElementById('credit-card-form');
+                if (this.value === 'credit-card') {
+                    creditCardForm.style.display = 'block';
+                } else {
+                    creditCardForm.style.display = 'none';
+                }
+            });
+        });
+
+        // Handle form submission
+        document.getElementById('payment-form').addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            // Store payment data
+            const paymentData = {
+                method: document.querySelector('input[name="payment-method"]:checked').value,
+                amount: depositAmount,
+                timestamp: new Date().toISOString()
+            };
+            
+            localStorage.setItem('paymentData', JSON.stringify(paymentData));
+            window.location.href = 'success.html';
+        });
+    </script>
+</body>
+</html>

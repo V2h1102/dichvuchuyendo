@@ -1,0 +1,760 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+
+<div>
+  <meta httpEquiv="Content-Type" content="text/html; charset=UTF-8" />
+  <meta httpEquiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Fastkart admin is super flexible, powerful, clean & modern responsive bootstrap 5 admin template with unlimited possibilities." />
+  <meta name="keywords" content="admin template, Fastkart admin template, dashboard template, flat admin template, responsive admin template, web app" />
+  <meta name="author" content="pixelstrap" />
+  <link rel="icon" href="assets/images/favicon.png" type="image/x-icon" />
+  <link rel="shortcut icon" href="assets/images/favicon.png" type="image/x-icon" />
+  <title>Fastkart - Product Review</title>
+  <!-- {/* Google font*/} -->
+  <link href="https://fonts.googleapis.com/css2?family=Public+Sans:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet" />
+  <!-- {/* Fontawesome css */} -->
+  <link rel="stylesheet" type="text/css" href="assets/css/vendors/font-awesome.css" />
+  <!-- {/* Linear Icon css */} -->
+  <link rel="stylesheet" href="assets/css/linearicon.css" />
+  <!-- {/* remixicon css */} -->
+  <link rel="stylesheet" type="text/css" href="assets/css/remixicon.css" />
+  <!-- {/* Data Table css */} -->
+  <link rel="stylesheet" type="text/css" href="assets/css/datatables.css" />
+  <!-- {/* Themify icon css */} -->
+  <link rel="stylesheet" type="text/css" href="assets/css/vendors/themify.css" />
+  <!-- {/* Feather icon css */} -->
+  <link rel="stylesheet" type="text/css" href="assets/css/vendors/feather-icon.css" />
+  <!-- {/* Plugins css */} -->
+  <link rel="stylesheet" type="text/css" href="assets/css/vendors/scrollbar.css" />
+  <link rel="stylesheet" type="text/css" href="assets/css/vendors/animate.css" />
+  <!-- {/* Bootstrap css */} -->
+  <link rel="stylesheet" type="text/css" href="assets/css/vendors/bootstrap.css" />
+  <!-- {/* App css */} -->
+  <link rel="stylesheet" type="text/css" href="assets/css/style.css" />
+  <!-- {/* tap on top start*/} -->
+  <div className="tap-top">
+    <span className="lnr lnr-chevron-up" >
+  </div>
+  <!-- {/* tap on tap end*/} -->
+  <!-- {/* page-wrapper Start*/} -->
+  <div className="page-wrapper compact-wrapper" id="pageWrapper">
+    {/* Page Header Start*/}
+    <div className="page-header">
+      <div className="header-wrapper m-0">
+        <div className="header-logo-wrapper p-0">
+          <div className="logo-wrapper">
+            <a href="index.html">
+              <img className="img-fluid main-logo" src="assets/images/logo/1.png" alt="logo" />
+              <img className="img-fluid white-logo" src="assets/images/logo/1-white.png" alt="logo" />
+            </a>
+          </div>
+          <div className="toggle-sidebar">
+            <i className="status_toggle middle sidebar-toggle" data-feather="align-center" >
+            <a href="index.html">
+              <img src="assets/images/logo/1.png" className="img-fluid" alt />
+            </a>
+          </div>
+        </div>
+        <form className="form-inline search-full" action="javascript:void(0)" method="get">
+          <div className="form-group w-100">
+            <div className="Typeahead Typeahead--twitterUsers">
+              <div className="u-posRelative">
+                <input className="demo-input Typeahead-input form-control-plaintext w-100" type="text" placeholder="Search Fastkart .." name="q" title autofocus />
+                <i className="close-search" data-feather="x" >
+                <div className="spinner-border Typeahead-spinner" role="status">
+                  <span className="sr-only">Loading...</span>
+                </div>
+              </div>
+              <div className="Typeahead-menu" >
+            </div>
+          </div>
+        </form>
+        <div className="nav-right col-6 pull-right right-header p-0">
+          <ul className="nav-menus">
+            <li>
+              <span className="header-search">
+                <i className="ri-search-line" >
+              </span>
+            </li>
+            <li className="onhover-dropdown">
+              <div className="notification-box">
+                <i className="ri-notification-line" >
+                <span className="badge rounded-pill badge-theme">4</span>
+              </div>
+              <ul className="notification-dropdown onhover-show-div">
+                <li>
+                  <i className="ri-notification-line" >
+                  <h6 className="f-18 mb-0">Notitications</h6>
+                </li>
+                <li>
+                  <p>
+                    <i className="fa fa-circle me-2 font-primary" ></i>Delivery processing <span className="pull-right">10 min.</span>
+                  </p>
+                </li>
+                <li>
+                  <p>
+                    <i className="fa fa-circle me-2 font-success" ></i>Order Complete<span className="pull-right">1 hr</span>
+                  </p>
+                </li>
+                <li>
+                  <p>
+                    <i className="fa fa-circle me-2 font-info" ></i>Tickets Generated<span className="pull-right">3 hr</span>
+                  </p>
+                </li>
+                <li>
+                  <p>
+                    <i className="fa fa-circle me-2 font-danger" ></i>Delivery Complete<span className="pull-right">6 hr</span>
+                  </p>
+                </li>
+                <li>
+                  <a className="btn btn-primary" href="javascript:void(0)">Check all notification</a>
+                </li>
+              </ul>
+            </li>
+            <li>
+              <div className="mode">
+                <i className="ri-moon-line" ></i>
+              </div>
+            </li>
+            <li className="profile-nav onhover-dropdown pe-0 me-0">
+              <div className="media profile-media">
+                <img className="user-profile rounded-circle" src="assets/images/users/4.jpg" alt />
+                <div className="user-name-hide media-body">
+                  <span>Emay Walter</span>
+                  <p className="mb-0 font-roboto">Admin<i className="middle ri-arrow-down-s-line" ></i></p>
+                </div>
+              </div>
+              <ul className="profile-dropdown onhover-show-div">
+                <li>
+                  <a href="all-users.html">
+                    <i data-feather="users" ></i>
+                    <span>Users</span>
+                  </a>
+                </li>
+                <li>
+                  <a href="order-list.html">
+                    <i data-feather="archive" ></i>
+                    <span>Orders</span>
+                  </a>
+                </li>
+                <li>
+                  <a href="support-ticket.html">
+                    <i data-feather="phone" ></i>
+                    <span>Spports Tickets</span>
+                  </a>
+                </li>
+                <li>
+                  <a href="profile-setting.html">
+                    <i data-feather="settings" ></i>
+                    <span>Settings</span>
+                  </a>
+                </li>
+                <li>
+                  <a data-bs-toggle="modal" data-bs-target="#staticBackdrop" href="javascript:void(0)">
+                    <i data-feather="log-out" ></i>
+                    <span>Log out</span>
+                  </a>
+                </li>
+              </ul>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+    {/* Page Header Ends*/}
+    {/* Page Body Start*/}
+    <div className="page-body-wrapper">
+      {/* Page Sidebar Start*/}
+      <div className="sidebar-wrapper">
+        <div id="sidebarEffect" >
+        <div>
+          <div className="logo-wrapper logo-wrapper-center">
+            <a href="index.html" data-bs-original-title title>
+              <img className="img-fluid for-white" src="assets/images/logo/full-white.png" alt="logo" />
+            </a>
+            <div className="back-btn">
+              <i className="fa fa-angle-left" >
+            </div>
+            <div className="toggle-sidebar">
+              <i className="ri-apps-line status_toggle middle sidebar-toggle" >
+            </div>
+          </div>
+          <div className="logo-icon-wrapper">
+            <a href="index.html">
+              <img className="img-fluid main-logo main-white" src="assets/images/logo/1-white.png" alt="logo" />
+              <img className="img-fluid main-logo main-dark" src="assets/images/logo/logo-white.png" alt="logo" />
+            </a>
+          </div>
+          <nav className="sidebar-main">
+            <div className="left-arrow" id="left-arrow">
+              <i data-feather="arrow-left" ></i>
+            </div>
+            <div id="sidebar-menu">
+              <ul className="sidebar-links" id="simple-bar">
+                <li className="back-btn" ></li>
+                <li className="sidebar-list">
+                  <a className="sidebar-link sidebar-title link-nav" href="index.html">
+                    <i className="ri-home-line" ></i>
+                    <span>Dashboard</span>
+                  </a>
+                </li>
+                <li className="sidebar-list">
+                  <a className="linear-icon-link sidebar-link sidebar-title" href="javascript:void(0)">
+                    <i className="ri-store-3-line"></i>
+                    <span>Product</span>
+                  </a>
+                  <ul className="sidebar-submenu">
+                    <li>
+                      <a href="products.html">Prodcts</a>
+                    </li>
+                    <li>
+                      <a href="add-new-product.html">Add New Products</a>
+                    </li>
+                  </ul>
+                </li>
+                <li className="sidebar-list">
+                  <a className="linear-icon-link sidebar-link sidebar-title" href="javascript:void(0)">
+                    <i className="ri-list-check-2" ></i>
+                    <span>Category</span>
+                  </a>
+                  <ul className="sidebar-submenu">
+                    <li>
+                      <a href="category.html">Category List</a>
+                    </li>
+                    <li>
+                      <a href="add-new-category.html">Add New Category</a>
+                    </li>
+                  </ul>
+                </li>
+                <li className="sidebar-list">
+                  <a className="linear-icon-link sidebar-link sidebar-title" href="javascript:void(0)">
+                    <i className="ri-list-settings-line" >
+                    <span>Attributes</span>
+                  </a>
+                  <ul className="sidebar-submenu">
+                    <li>
+                      <a href="attributes.html">Attributes</a>
+                    </li>
+                    <li>
+                      <a href="add-new-attributes.html">Add Attributes</a>
+                    </li>
+                  </ul>
+                </li>
+                <li className="sidebar-list">
+                  <a className="sidebar-link sidebar-title" href="javascript:void(0)">
+                    <i className="ri-user-3-line" >
+                    <span>Users</span>
+                  </a>
+                  <ul className="sidebar-submenu">
+                    <li>
+                      <a href="all-users.html">All users</a>
+                    </li>
+                    <li>
+                      <a href="add-new-user.html">Add new user</a>
+                    </li>
+                  </ul>
+                </li>
+                <li className="sidebar-list">
+                  <a className="sidebar-link sidebar-title" href="javascript:void(0)">
+                    <i className="ri-user-3-line" ></i>
+                    <span>Roles</span>
+                  </a>
+                  <ul className="sidebar-submenu">
+                    <li>
+                      <a href="role.html">All roles</a>
+                    </li>
+                    <li>
+                      <a href="create-role.html">Create Role</a>
+                    </li>
+                  </ul>
+                </li>
+                <li className="sidebar-list">
+                  <a className="sidebar-link sidebar-title link-nav" href="media.html">
+                    <i className="ri-price-tag-3-line"></i>
+                    <span>Media</span>
+                  </a>
+                </li>
+                <li className="sidebar-list">
+                  <a className="sidebar-link sidebar-title" href="javascript:void(0)">
+                    <i className="ri-archive-line" />
+                    <span>Orders</span>
+                  </a>
+                  <ul className="sidebar-submenu">
+                    <li>
+                      <a href="order-list.html">Order List</a>
+                    </li>
+                    <li>
+                      <a href="order-detail.html">Order Detail</a>
+                    </li>
+                    <li>
+                      <a href="order-tracking.html">Order Tracking</a>
+                    </li>
+                  </ul>
+                </li>
+                <li className="sidebar-list">
+                  <a className="linear-icon-link sidebar-link sidebar-title" href="javascript:void(0)">
+                    <i className="ri-focus-3-line" />
+                    <span>Localization</span>
+                  </a>
+                  <ul className="sidebar-submenu">
+                    <li>
+                      <a href="translation.html">Translation</a>
+                    </li>
+                    <li>
+                      <a href="currency-rates.html">Currency Rates</a>
+                    </li>
+                  </ul>
+                </li>
+                <li className="sidebar-list">
+                  <a className="linear-icon-link sidebar-link sidebar-title" href="javascript:void(0)">
+                    <i className="ri-price-tag-3-line" />
+                    <span>Coupons</span>
+                  </a>
+                  <ul className="sidebar-submenu">
+                    <li>
+                      <a href="coupon-list.html">Coupon List</a>
+                    </li>
+                    <li>
+                      <a href="create-coupon.html">Create Coupon</a>
+                    </li>
+                  </ul>
+                </li>
+                <li className="sidebar-list">
+                  <a className="sidebar-link sidebar-title link-nav" href="taxes.html">
+                    <i className="ri-price-tag-3-line" />
+                    <span>Tax</span>
+                  </a>
+                </li>
+                <li className="sidebar-list">
+                  <a className="sidebar-link sidebar-title link-nav" href="product-review.html">
+                    <i className="ri-star-line" />
+                    <span>Product Review</span>
+                  </a>
+                </li>
+                <li className="sidebar-list">
+                  <a className="sidebar-link sidebar-title link-nav" href="support-ticket.html">
+                    <i className="ri-phone-line" />
+                    <span>Support Ticket</span>
+                  </a>
+                </li>
+                <li className="sidebar-list">
+                  <a className="linear-icon-link sidebar-link sidebar-title" href="javascript:void(0)">
+                    <i className="ri-settings-line" />
+                    <span>Settings</span>
+                  </a>
+                  <ul className="sidebar-submenu">
+                    <li>
+                      <a href="profile-setting.html">Profile Setting</a>
+                    </li>
+                  </ul>
+                </li>
+                <li className="sidebar-list">
+                  <a className="sidebar-link sidebar-title link-nav" href="reports.html">
+                    <i className="ri-file-chart-line" />
+                    <span>Reports</span>
+                  </a>
+                </li>
+                <li className="sidebar-list">
+                  <a className="sidebar-link sidebar-title link-nav" href="list-page.html">
+                    <i className="ri-list-check" />
+                    <span>List Page</span>
+                  </a>
+                </li>
+              </ul>
+            </div>
+            <div className="right-arrow" id="right-arrow">
+              <i data-feather="arrow-right" />
+            </div>
+          </nav>
+        </div>
+      </div>
+      {/* Page Sidebar Ends*/}
+      {/* product review section start */}
+      <div className="page-body">
+        <div className="container-fluid">
+          <div className="row">
+            <div className="col-sm-12">
+              <div className="card card-table">
+                {/* Table Start */}
+                <div className="card-body">
+                  <div className="title-header option-title">
+                    <h5>Product Reviews</h5>
+                  </div>
+                  <div>
+                    <div className="table-responsive">
+                      <table className="user-table ticket-table review-table theme-table table" id="table_id">
+                        <thead>
+                          <tr>
+                            <th>No.</th>
+                            <th>Customer Name</th>
+                            <th>Product Name</th>
+                            <th>Rating</th>
+                            <th>Comment</th>
+                            <th>Published</th>
+                          </tr>
+                        </thead>
+                        <tbody>
+                          <tr>
+                            <td>01</td>
+                            <td>Maureen Biologist</td>
+                            <td>Outwear &amp; Coats</td>
+                            <td>
+                              <ul className="rating">
+                                <li>
+                                  <i className="fas fa-star theme-color" />
+                                </li>
+                                <li>
+                                  <i className="fas fa-star theme-color" />
+                                </li>
+                                <li>
+                                  <i className="fas fa-star" />
+                                </li>
+                                <li>
+                                  <i className="fas fa-star" />
+                                </li>
+                                <li>
+                                  <i className="fas fa-star" />
+                                </li>
+                              </ul>
+                            </td>
+                            <td>The Product is No Longer Needed</td>
+                            <td className="td-check">
+                              <i className="ri-checkbox-circle-line" />
+                            </td>
+                          </tr>
+                          <tr>
+                            <td>02</td>
+                            <td>Caroline Harris</td>
+                            <td>Slim Fit Plastic Coat</td>
+                            <td>
+                              <ul className="rating">
+                                <li>
+                                  <i className="fas fa-star theme-color" />
+                                </li>
+                                <li>
+                                  <i className="fas fa-star theme-color" />
+                                </li>
+                                <li>
+                                  <i className="fas fa-star theme-color" />
+                                </li>
+                                <li>
+                                  <i className="fas fa-star theme-color" />
+                                </li>
+                                <li>
+                                  <i className="fas fa-star theme-color" />
+                                </li>
+                              </ul>
+                            </td>
+                            <td>The Product is No Longer Needed</td>
+                            <td className="td-check">
+                              <i className="ri-checkbox-circle-line" />
+                            </td>
+                          </tr>
+                          <tr>
+                            <td>03</td>
+                            <td>Lucy Morile</td>
+                            <td>Men's Sweatshirt</td>
+                            <td>
+                              <ul className="rating">
+                                <li>
+                                  <i className="fas fa-star theme-color" />
+                                </li>
+                                <li>
+                                  <i className="fas fa-star" />
+                                </li>
+                                <li>
+                                  <i className="fas fa-star" />
+                                </li>
+                                <li>
+                                  <i className="fas fa-star" />
+                                </li>
+                                <li>
+                                  <i className="fas fa-star" />
+                                </li>
+                              </ul>
+                            </td>
+                            <td>The Product is No Longer Needed</td>
+                            <td className="td-check">
+                              <i className="ri-checkbox-circle-line" />
+                            </td>
+                          </tr>
+                          <tr>
+                            <td>04</td>
+                            <td>Jennifer Straight</td>
+                            <td>Men's Hoodie t-shirt</td>
+                            <td>
+                              <ul className="rating">
+                                <li>
+                                  <i className="fas fa-star theme-color" />
+                                </li>
+                                <li>
+                                  <i className="fas fa-star theme-color" />
+                                </li>
+                                <li>
+                                  <i className="fas fa-star theme-color" />
+                                </li>
+                                <li>
+                                  <i className="fas fa-star theme-color" />
+                                </li>
+                                <li>
+                                  <i className="fas fa-star" />
+                                </li>
+                              </ul>
+                            </td>
+                            <td>The Product is No Longer Needed</td>
+                            <td className="td-cross">
+                              <i className="ri-close-circle-line" />
+                            </td>
+                          </tr>
+                          <tr>
+                            <td>05</td>
+                            <td>Kevin Millett</td>
+                            <td>Outwear &amp; Coats</td>
+                            <td>
+                              <ul className="rating">
+                                <li>
+                                  <i className="fas fa-star theme-color" />
+                                </li>
+                                <li>
+                                  <i className="fas fa-star theme-color" />
+                                </li>
+                                <li>
+                                  <i className="fas fa-star theme-color" />
+                                </li>
+                                <li>
+                                  <i className="fas fa-star" />
+                                </li>
+                                <li>
+                                  <i className="fas fa-star" />
+                                </li>
+                              </ul>
+                            </td>
+                            <td>The Product is No Longer Needed</td>
+                            <td className="td-check">
+                              <i className="ri-checkbox-circle-line" />
+                            </td>
+                          </tr>
+                          <tr>
+                            <td>06</td>
+                            <td>czxc</td>
+                            <td>Slim Fit Plastic Coat</td>
+                            <td>
+                              <ul className="rating">
+                                <li>
+                                  <i className="fas fa-star theme-color" />
+                                </li>
+                                <li>
+                                  <i className="fas fa-star theme-color" />
+                                </li>
+                                <li>
+                                  <i className="fas fa-star" />
+                                </li>
+                                <li>
+                                  <i className="fas fa-star" />
+                                </li>
+                                <li>
+                                  <i className="fas fa-star" />
+                                </li>
+                              </ul>
+                            </td>
+                            <td>The Product is No Longer Needed</td>
+                            <td className="td-cross">
+                              <i className="ri-close-circle-line" />
+                            </td>
+                          </tr>
+                          <tr>
+                            <td>07</td>
+                            <td>Kevin Millett</td>
+                            <td>Men's Sweatshirt</td>
+                            <td>
+                              <ul className="rating">
+                                <li>
+                                  <i className="fas fa-star theme-color" />
+                                </li>
+                                <li>
+                                  <i className="fas fa-star theme-color" />
+                                </li>
+                                <li>
+                                  <i className="fas fa-star theme-color" />
+                                </li>
+                                <li>
+                                  <i className="fas fa-star theme-color" />
+                                </li>
+                                <li>
+                                  <i className="fas fa-star theme-color" />
+                                </li>
+                              </ul>
+                            </td>
+                            <td>The Product is No Longer Needed</td>
+                            <td className="td-cross">
+                              <i className="ri-close-circle-line" />
+                            </td>
+                          </tr>
+                          <tr>
+                            <td>08</td>
+                            <td>Dillon Bradshaw</td>
+                            <td>Men's Hoodie t-shirt</td>
+                            <td>
+                              <ul className="rating">
+                                <li>
+                                  <i className="fas fa-star theme-color" />
+                                </li>
+                                <li>
+                                  <i className="fas fa-star theme-color" />
+                                </li>
+                                <li>
+                                  <i className="fas fa-star theme-color" />
+                                </li>
+                                <li>
+                                  <i className="fas fa-star theme-color" />
+                                </li>
+                                <li>
+                                  <i className="fas fa-star theme-color" />
+                                </li>
+                              </ul>
+                            </td>
+                            <td>The Product is No Longer Needed</td>
+                            <td className="td-check">
+                              <i className="ri-checkbox-circle-line" />
+                            </td>
+                          </tr>
+                          <tr>
+                            <td>09</td>
+                            <td>Lorna Bonner</td>
+                            <td>Outwear &amp; Coats</td>
+                            <td>
+                              <ul className="rating">
+                                <li>
+                                  <i className="fas fa-star theme-color" />
+                                </li>
+                                <li>
+                                  <i className="fas fa-star theme-color" />
+                                </li>
+                                <li>
+                                  <i className="fas fa-star theme-color" />
+                                </li>
+                                <li>
+                                  <i className="fas fa-star theme-color" />
+                                </li>
+                                <li>
+                                  <i className="fas fa-star theme-color" />
+                                </li>
+                              </ul>
+                            </td>
+                            <td>The Product is No Longer Needed</td>
+                            <td className="td-cross">
+                              <i className="ri-close-circle-line" />
+                            </td>
+                          </tr>
+                          <tr>
+                            <td>10</td>
+                            <td>Richard Johnson</td>
+                            <td>Slim Fit Plastic Coat </td>
+                            <td>
+                              <ul className="rating">
+                                <li>
+                                  <i className="fas fa-star theme-color" />
+                                </li>
+                                <li>
+                                  <i className="fas fa-star" />
+                                </li>
+                                <li>
+                                  <i className="fas fa-star" />
+                                </li>
+                                <li>
+                                  <i className="fas fa-star" />
+                                </li>
+                                <li>
+                                  <i className="fas fa-star" />
+                                </li>
+                              </ul>
+                            </td>
+                            <td>The Product is No Longer Needed</td>
+                            <td className="td-check">
+                              <i className="ri-checkbox-circle-line" />
+                            </td>
+                          </tr>
+                          <tr>
+                            <td>11</td>
+                            <td>Lorraine McDowell</td>
+                            <td>Men's Sweatshirt</td>
+                            <td>
+                              <ul className="rating">
+                                <li>
+                                  <i className="fas fa-star theme-color" />
+                                </li>
+                                <li>
+                                  <i className="fas fa-star theme-color" />
+                                </li>
+                                <li>
+                                  <i className="fas fa-star theme-color" />
+                                </li>
+                                <li>
+                                  <i className="fas fa-star" />
+                                </li>
+                                <li>
+                                  <i className="fas fa-star" />
+                                </li>
+                              </ul>
+                            </td>
+                            <td>The Product is No Longer Needed</td>
+                            <td className="td-check">
+                              <i className="ri-checkbox-circle-line" />
+                            </td>
+                          </tr>
+                        </tbody>
+                      </table>
+                    </div>
+                  </div>
+                </div>
+                {/* Table End */}
+              </div>
+            </div>
+          </div>
+        </div>
+        {/* Container-fluid Ends*/}
+        <div className="container-fluid">
+          {/* footer start*/}
+          <footer className="footer">
+            <div className="row">
+              <div className="col-md-12 footer-copyright text-center">
+                <p className="mb-0">Copyright 2022 © Fastkart theme by pixelstrap</p>
+              </div>
+            </div>
+          </footer>
+        </div>
+      </div>
+      {/* product review section End */}
+    </div>
+    {/* Page Body end*/}
+    {/* Modal start */}
+    <div className="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabIndex={-1}>
+      <div className="modal-dialog  modal-dialog-centered">
+        <div className="modal-content">
+          <div className="modal-body">
+            <h5 className="modal-title" id="staticBackdropLabel">Logging Out</h5>
+            <p>Are you sure you want to log out?</p>
+            <button type="button" className="btn-close" data-bs-dismiss="modal" aria-label="Close" ></button>
+            <div className="button-box">
+              <button type="button" className="btn btn--no" data-bs-dismiss="modal">No</button>
+              <button type="button" className="btn  btn--yes btn-primary">Yes</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    {/* Modal end */}
+  </div>
+  {/* page-wrapper end*/}
+  {/* latest js */}
+  {/* Bootstrap js */}
+  {/* feather icon js */}
+  {/* scrollbar simplebar js */}
+  {/* customizer js */}
+  {/* Sidebar js */}
+  {/* Plugins JS */}
+  {/* Data table js */}
+  {/* sidebar effect */}
+  {/* Theme js */}
+</div>
