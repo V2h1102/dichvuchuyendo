@@ -1,0 +1,10 @@
+<component name="ArtifactManager">
+  <artifact type="jpackage" name="furniture_moving_service_swp391">
+    <output-path>$PROJECT_DIR$/out/artifacts/furniture_moving_service_swp391</output-path>
+    <root id="root">
+      <element id="archive" name="furniture_moving_service_swp391.jar">
+        <element id="module-output" name="furniture_moving_service_swp391" />
+      </element>
+    </root>
+  </artifact>
+</component>
