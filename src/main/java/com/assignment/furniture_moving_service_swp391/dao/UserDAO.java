@@ -7,6 +7,8 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.ArrayList;
+import java.util.List;
 
 public class UserDAO {
 
@@ -59,7 +61,6 @@ public class UserDAO {
         // SQLException sẽ được ném ra nếu có lỗi (ví dụ: email đã tồn tại do ràng buộc UNIQUE)
     }
 
-    // (Bạn cần thêm một cột VARCHAR vào bảng Users, ví dụ: reset_token)
     public void saveResetToken(long userId, String token) throws SQLException {
         String sql = "UPDATE Users SET reset_token = ? WHERE id = ?";
         try (Connection conn = DatabaseConnection.getConnection();
@@ -79,22 +80,53 @@ public class UserDAO {
             ResultSet rs = ps.executeQuery();
             if (rs.next()) {
                 user = new User();
-                // ... set các thuộc tính cho user giống như trong getUserByEmail ...
+                // Lấy đủ thông tin user giống như trong getUserByEmail
                 user.setId(rs.getLong("id"));
                 user.setEmail(rs.getString("email"));
                 user.setFullName(rs.getString("full_name"));
+                // ... các trường khác nếu cần
             }
         }
         return user;
     }
 
     public void updatePassword(long userId, String newPasswordHash) throws SQLException {
-        String sql = "UPDATE Users SET password_hash = ?, reset_token = NULL WHERE id = ?"; // Xóa token sau khi đổi mật khẩu
+        // Cập nhật mật khẩu và xóa token để nó không thể được sử dụng lại
+        String sql = "UPDATE Users SET password_hash = ?, reset_token = NULL WHERE id = ?";
         try (Connection conn = DatabaseConnection.getConnection();
              PreparedStatement ps = conn.prepareStatement(sql)) {
             ps.setString(1, newPasswordHash);
             ps.setLong(2, userId);
             ps.executeUpdate();
         }
+    }
+
+    // Thêm vào file UserDAO.java
+    public List<User> getAllUsers() throws SQLException {
+        List<User> userList = new ArrayList<>();
+        String sql = "SELECT id, email, full_name, phone FROM Users";
+
+        System.out.println("--- [DAO] Bắt đầu lấy tất cả user..."); // Dòng debug 1
+
+        try (Connection conn = DatabaseConnection.getConnection();
+             PreparedStatement ps = conn.prepareStatement(sql);
+             ResultSet rs = ps.executeQuery()) {
+
+            while (rs.next()) {
+                System.out.println("--- [DAO] Tìm thấy một user trong ResultSet!"); // Dòng debug 2
+
+                User user = new User();
+                user.setId(rs.getLong("id"));
+                user.setEmail(rs.getString("email"));
+                user.setFullName(rs.getString("full_name"));
+                user.setPhone(rs.getString("phone"));
+                //user.setUserType(rs.getString("user_type"));
+                //user.setActive(rs.getBoolean("is_active"));
+                userList.add(user);
+            }
+        }
+
+        System.out.println("--- [DAO] Kết thúc. Số user tìm thấy: " + userList.size()); // Dòng debug 3
+        return userList;
     }
 }

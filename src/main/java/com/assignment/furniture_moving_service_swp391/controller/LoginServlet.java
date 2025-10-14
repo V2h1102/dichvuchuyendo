@@ -61,7 +61,7 @@ public class LoginServlet extends HttpServlet {
             // Cập nhật thời gian đăng nhập cuối cùng (Tùy chọn)
             // userDAO.updateLastLogin(user.getId());
 
-            response.sendRedirect("home.jsp");
+            response.sendRedirect("index1.jsp");
         } else {
             System.out.println("\n4. ĐĂNG NHẬP THẤT BẠI. Chuyển hướng về login.jsp?error=true.");
             response.sendRedirect("login.jsp?error=true");

@@ -21,31 +21,34 @@ public class ResetPasswordServlet extends HttpServlet {
         String newPassword = request.getParameter("newPassword");
         String confirmPassword = request.getParameter("confirmPassword");
 
-        // Kiểm tra mật khẩu có khớp không
+        // 1. Kiểm tra mật khẩu có khớp không
         if (!newPassword.equals(confirmPassword)) {
+            // Nếu không khớp, quay lại trang reset với thông báo lỗi
             response.sendRedirect("reset-password.jsp?token=" + token + "&error=password_mismatch");
             return;
         }
 
         UserDAO userDAO = new UserDAO();
         try {
-            // Tìm user bằng token
+            // 2. Tìm người dùng trong DB bằng token
             User user = userDAO.getUserByResetToken(token);
 
             if (user != null) {
-                // Token hợp lệ, tiến hành đổi mật khẩu
+                // 3. Token hợp lệ -> Băm mật khẩu mới
                 String newPasswordHash = BCrypt.hashpw(newPassword, BCrypt.gensalt());
+
+                // 4. Cập nhật mật khẩu mới vào DB
                 userDAO.updatePassword(user.getId(), newPasswordHash);
 
-                // Chuyển hướng về trang đăng nhập với thông báo thành công
+                // 5. Chuyển hướng về trang đăng nhập với thông báo thành công
                 response.sendRedirect("login.jsp?reset_success=true");
             } else {
-                // Token không hợp lệ hoặc đã hết hạn
+                // 6. Token không hợp lệ hoặc đã hết hạn
                 response.sendRedirect("reset-password.jsp?token=" + token + "&error=invalid_token");
             }
         } catch (SQLException e) {
             e.printStackTrace();
-            // Xử lý lỗi DB
+            // Nếu có lỗi DB, chuyển đến trang lỗi chung
             response.sendRedirect("error.jsp");
         }
     }
