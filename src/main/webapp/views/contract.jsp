@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 <!DOCTYPE html>
 <html lang="vi">
 <head>
@@ -334,7 +335,7 @@
         </div>
         <span class="logo-text">MoveEasy</span>
       </div>
-      <a href="booking.jsp" class="back-link">
+      <a href="quotation-request.jsp" class="back-link">
         <i class="fas fa-arrow-left" style="margin-right: 0.5rem;"></i>Quay lại Đặt lịch
       </a>
     </div>
@@ -348,55 +349,79 @@
       <p class="text-xl text-muted-foreground">Vui lòng xem lại chi tiết đặt lịch và cung cấp thông tin bổ sung.</p>
     </div>
 
+    <c:if test="${not empty errorMessage}">
+      <div style="background-color: #fef2f2; border: 1px solid #fecaca; color: #991b1b; padding: 12px; border-radius: 8px; margin-bottom: 24px;">
+        <i class="fas fa-exclamation-triangle" style="margin-right: 8px;"></i>${errorMessage}
+      </div>
+    </c:if>
+
     <div class="card mb-8">
-      <h2>Tóm tắt Đặt lịch</h2>
+      <h2>Tóm tắt Đặt lịch (Mã: ${quotationRequest.quotationID})</h2>
       <div id="booking-summary" class="space-y-3">
         <div class="flex-between"><span class="text-muted-foreground">Địa chỉ Lấy hàng:</span><span class="font-medium">${quotationRequest.pickupAddress}</span></div>
         <div class="flex-between"><span class="text-muted-foreground">Địa chỉ Giao hàng:</span><span class="font-medium">${quotationRequest.dropoffAddress}</span></div>
 
-        <div class="flex-between"><span class="text-muted-foreground">Ngày Chuyển/Giao hàng:</span><span class="font-medium">${quotationRequest.moveDate}</span></div>
+        <div class="flex-between"><span class="text-muted-foreground">Ngày Chuyển/Giao hàng:</span><span class="font-medium">${quotationRequest.moveDate}</span>
+        </div>
 
-        <c:forEach var="item" items="${quotationRequest.items}">
+        <c:forEach var="item" items="${quotationRequest.itemRequests}" varStatus="loop">
           <div class="flex-between">
-            <span class="text-muted-foreground">${item.furnitureType}:</span>
-            <span class="font-medium">${item.quantity}</span>
+            <span class="text-muted-foreground">Món đồ ${loop.index + 1} (${item.furnitureName}):</span>
+            <span class="font-medium">${item.quantity} cái</span>
           </div>
         </c:forEach>
 
-        <div class="flex-between"><span class="text-muted-foreground">Đồ giá trị cao:</span><span class="font-medium">${quotationRequest.highValueItems ? 'Có' : 'Không'}</span></div>
+        <div class="flex-between">
+          <span class="text-muted-foreground">Đồ giá trị cao:</span>
+          <span class="font-medium">${quotationRequest.highValueItems ? 'Có' : 'Không'}</span>
+        </div>
 
-        <div class="flex-between"><span class="text-muted-foreground">Người bốc xếp:</span><span class="font-medium">${quotationRequest.manpowerOption}</span></div>
-
+        <div class="flex-between">
+          <span class="text-muted-foreground">Người bốc xếp:</span>
+          <span class="font-medium">
+        <c:choose>
+          <c:when test="${quotationRequest.manpowerOption == 'TWO_MAN'}">2 Người</c:when>
+          <c:when test="${quotationRequest.manpowerOption == 'THREE_MAN'}">3 Người</c:when>
+          <c:otherwise>Không cần</c:otherwise>
+        </c:choose>
+    </span>
+        </div>
 
         <div class="summary-total">
-          <div class="flex-between"><span>Tổng Chi phí:</span><span class="summary-price">$${quotationRequest.totalPrice}</span></div>
-          <div class="summary-deposit">Yêu cầu đặt cọc 50%: $${quotationRequest.depositAmount}</div>
+          <div class="flex-between"><span>Tổng Chi phí:</span><span class="summary-price">
+                        <fmt:formatNumber value="${quotationRequest.totalCost}" type="number" pattern="#,##0"/> VND
+                    </span></div>
+
+          <div class="summary-deposit">Yêu cầu đặt cọc 50%:
+            <fmt:formatNumber value="${quotationRequest.totalCost * 0.5}" type="number" pattern="#,##0"/> VND
+          </div>
         </div>
       </div>
     </div>
 
-    <form id="contract-form" action="confirm-contract" method="POST" class="card form-card">
+    <form id="contract-form" action="${pageContext.request.contextPath}/confirm-contract" method="POST" class="card form-card">
       <h2 class="mb-6">Thông tin Khách hàng</h2>
+
+      <input type="hidden" name="quotationId" value="${quotationRequest.quotationID}">
 
       <div class="grid-2-cols mb-6">
         <div>
           <label for="customer-name">Tên Khách hàng *</label>
           <input type="text" id="customer-name" name="customerName" required
-                 placeholder="Nhập họ tên đầy đủ của bạn" value="${customerInfo.customerName}">
+                 placeholder="Nhập họ tên đầy đủ của bạn" value="${param.customerName}">
         </div>
         <div>
           <label for="customer-phone">Số điện thoại *</label>
           <input type="tel" id="customer-phone" name="customerPhone" required
-                 placeholder="Nhập số điện thoại của bạn" value="${customerInfo.customerPhone}">
+                 placeholder="Nhập số điện thoại của bạn" value="${param.customerPhone}">
         </div>
       </div>
 
       <div class="grid-2-cols mb-6">
-
         <div>
           <label for="receiver-phone">Số điện thoại Người nhận</label>
           <input type="tel" id="receiver-phone" name="receiverPhone"
-                 placeholder="Nhập SĐT người nhận (nếu khác)" value="${customerInfo.receiverPhone}">
+                 placeholder="Nhập SĐT người nhận (nếu khác)" value="${param.receiverPhone}">
         </div>
       </div>
 
@@ -409,13 +434,13 @@
       <div class="terms-checkbox-group">
         <input type="checkbox" id="terms" name="termsAgreed" required class="terms-checkbox">
         <span class="terms-text">
-                        Tôi đồng ý với <a href="#">Điều khoản và Điều kiện</a> và
-                        <a href="#">Chính sách Bảo mật</a>. Tôi hiểu rằng cần đặt cọc 50% để xác nhận đặt lịch.
-                    </span>
+                  Tôi đồng ý với <a href="#">Điều khoản và Điều kiện</a> và
+                  <a href="#">Chính sách Bảo mật</a>. Tôi hiểu rằng cần đặt cọc 50% để xác nhận đặt lịch.
+                </span>
       </div>
 
       <button type="submit">
-        Tiến hành Thanh toán
+        Gửi yêu cầu
       </button>
     </form>
   </div>

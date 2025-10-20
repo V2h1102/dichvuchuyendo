@@ -377,7 +377,7 @@
                 <div class="logo"><i class="fas fa-truck"></i></div>
                 <span>MoveEasy</span>
             </div>
-            <a href="/index.jsp" class="back-link"><i class="fas fa-arrow-left" style="margin-right:6px;"></i>Quay lại
+            <a href="/home.jsp" class="back-link"><i class="fas fa-arrow-left" style="margin-right:6px;"></i>Quay lại
                 Trang Chủ</a>
         </div>
     </div>
@@ -390,7 +390,7 @@
             <p class="subtitle">Vui lòng điền chi tiết bên dưới để bắt đầu báo giá dịch vụ chuyển đồ.</p>
         </div>
 
-        <form id="booking-form" action="/booking" method="post" class="card">
+        <form id="booking-form" action="${pageContext.request.contextPath}/quotation" method="post" class="card">
             <h3 class="form-heading">Thông tin Vận chuyển</h3>
             <div class="grid grid-2" style="margin-bottom: 16px;">
                 <div>
@@ -412,10 +412,10 @@
                 </div>
             </div>
 
-            <h3 class="form-heading" style="margin-top: 24px;">Đồ đạc cần Chuyển</h3>
+            <h3 class="form-heading" style="margin-top: 24px;">Đồ đạc cần chuyển</h3>
             <div style="margin-bottom: 24px;">
                 <div class="items-header">
-                    <h4 style="margin:0; font-size:16px; font-weight:700;">Danh sách Đồ đạc</h4>
+                    <h4 style="margin:0; font-size:16px; font-weight:700;">Danh sách đồ đạc</h4>
 
                     <button class="btn btn-primary" type="button" id="add-item-btn">
                         <i class="fas fa-plus"></i><span>Thêm Đồ mới</span>
@@ -424,13 +424,15 @@
 
                 <div class="items-stack" id="items-list">
 
-                    <c:if test="${not empty booking.itemRequests}">
-                        <c:forEach var="it" items="${booking.itemRequests}" varStatus="st">
+                    <!-- Có sẵn item (từ request.setAttribute("quotation")) -->
+                    <c:if test="${not empty quotation.itemRequests}">
+                        <c:forEach var="it" items="${quotation.itemRequests}">
                             <div class="item-row">
                                 <div class="item-row-inner">
                                     <div>
                                         <label class="label">Chọn Đồ đạc</label>
-                                        <select class="select" name="itemRequests[${st.index}].itemId">
+                                        <!-- ĐỔI name: itemIds -->
+                                        <select class="select" name="itemIds">
                                             <option value="">Chọn một món đồ...</option>
 
                                             <c:forEach var="entry" items="${furnitureGroups}">
@@ -447,8 +449,8 @@
                                     </div>
                                     <div>
                                         <label class="label">Số lượng</label>
-                                        <input class="input qty-input" type="number" min="1"
-                                               name="itemRequests[${st.index}].quantity"
+                                        <!-- ĐỔI name: quantities -->
+                                        <input class="input qty-input" type="number" min="1" name="quantities"
                                                value="<c:out value='${it.quantity}'/>"/>
                                     </div>
                                     <div style="align-self:center;">
@@ -461,12 +463,14 @@
                         </c:forEach>
                     </c:if>
 
-                    <c:if test="${empty booking.itemRequests}">
+                    <!-- Không có item nào -> tạo 1 hàng mặc định -->
+                    <c:if test="${empty quotation.itemRequests}">
                         <div class="item-row">
                             <div class="item-row-inner">
                                 <div>
-                                    <label class="label">Chọn Đồ đạc</label>
-                                    <select class="select" name="itemRequests[0].itemId">
+                                    <label class="label">Chọn đồ cần chuyển</label>
+                                    <!-- ĐỔI name: itemIds -->
+                                    <select class="select" name="itemIds">
                                         <option value="">Chọn một món đồ...</option>
 
                                         <c:forEach var="entry" items="${furnitureGroups}">
@@ -482,7 +486,8 @@
                                 </div>
                                 <div>
                                     <label class="label">Số lượng</label>
-                                    <input class="input qty-input" type="number" min="1" name="itemRequests[0].quantity" value="1"/>
+                                    <!-- ĐỔI name: quantities -->
+                                    <input class="input qty-input" type="number" min="1" name="quantities" value="1"/>
                                 </div>
                                 <div style="align-self:center;">
                                     <button class="btn btn-ghost remove-item-btn" type="button" title="Xóa món đồ này">
@@ -493,11 +498,12 @@
                         </div>
                     </c:if>
 
+                    <!-- TEMPLATE CLONE: name PHẢI là itemIds / quantities, KHÔNG dùng *_template -->
                     <div class="item-row" id="item-row-template" style="display: none;">
                         <div class="item-row-inner">
                             <div>
                                 <label class="label">Chọn Đồ đạc</label>
-                                <select class="select" name="itemIds_template">
+                                <select class="select" name="itemIds">
                                     <option value="">Chọn một món đồ...</option>
 
                                     <c:forEach var="entry" items="${furnitureGroups}">
@@ -513,18 +519,15 @@
                             </div>
                             <div>
                                 <label class="label">Số lượng</label>
-                                <input class="input qty-input" type="number" min="1" name="quantities_template"
-                                       value="1" />
+                                <input class="input qty-input" type="number" min="1" name="quantities" value="1"/>
                             </div>
                             <div style="align-self:center;">
-                                <button class="btn btn-ghost remove-item-btn" type="button"
-                                        title="Xóa món đồ này">
+                                <button class="btn btn-ghost remove-item-btn" type="button" title="Xóa món đồ này">
                                     <i class="fas fa-trash"></i>
                                 </button>
                             </div>
                         </div>
                     </div>
-
 
                     <div id="empty-list-message" class="muted"
                          style="text-align:center; padding:28px; display: none;">
@@ -564,28 +567,15 @@
                     <select class="select" id="manpower-service" name="manpowerOption"
                             style="width:auto; max-width:200px; padding: 12px 6px;">
                         <option value="NONE">Không cần</option>
-                        <option value="TWO_MAN">2 Người (+₫3000000)</option>
-                        <option value="THREE_MAN">3 Người (+₫4000000)</option>
+                        <option value="TWO_MAN">2 Người (+₫300000)</option>
+                        <option value="THREE_MAN">3 Người (+₫400000)</option>
                     </select>
-                </div>
-            </div>
-
-            <h3 class="form-heading" style="margin-top: 24px;">Tổng Hợp Báo Giá</h3>
-            <div class="muted-box" style="margin-bottom: 24px;">
-                <div class="price-line">
-                    <span style="font-size: 16px; font-weight:700;">Tổng Cộng:</span>
-                    <span class="total">
-                            $50.00
-                        </span>
-                </div>
-                <div class="muted" style="margin-top:8px;">
-                    <div>Phí cơ bản: $50</div>
                 </div>
             </div>
 
             <div class="actions">
                 <button type="submit" class="btn btn-primary submit">
-                    Tiếp tục đến Chi tiết Hợp đồng
+                    Chuyển tới hợp đồng
                 </button>
             </div>
         </form>
@@ -597,58 +587,25 @@
         const itemsList = document.getElementById('items-list');
         const addItemBtn = document.getElementById('add-item-btn');
         const itemTemplate = document.getElementById('item-row-template');
-        let itemIndex = itemsList.querySelectorAll('.item-row').length;
 
-        // Hàm cập nhật tên thuộc tính cho việc submit form
-        function updateItemNames(itemRow, index) {
-            // Đổi name của select và input số lượng để backend nhận diện là một list/array
-            const select = itemRow.querySelector('select[name$="_template"]');
-            const input = itemRow.querySelector('input[name$="_template"]');
-
-            if (select) {
-                select.name = `itemRequests[${index}].itemId`; // hoặc chỉ là itemIds
-            }
-            if (input) {
-                input.name = `itemRequests[${index}].quantity`; // hoặc chỉ là quantities
-            }
-            // Có thể thêm hidden input cho trạng thái xóa nếu cần
-            // Ví dụ: <input type="hidden" name="itemRequests[${index}].status" value="NEW"/>
+        function removeItem(btn) {
+            const row = btn.closest('.item-row');
+            if (row) row.remove();
         }
 
-        // Xóa món đồ
-        function removeItem(button) {
-            const itemRow = button.closest('.item-row');
-            itemRow.remove();
-            // Tùy chọn: cần sắp xếp lại index cho tất cả các item còn lại nếu sử dụng index trong tên thuộc tính (itemRequests[${index}])
-        }
-
-        // Thêm món đồ
         addItemBtn.addEventListener('click', () => {
             const newItem = itemTemplate.cloneNode(true);
-            newItem.id = ''; // Xóa id template
+            newItem.id = '';
             newItem.style.display = 'block';
-
-            // Lấy index mới (chỉ sử dụng nếu bạn cần index liên tục)
-            const currentIndex = itemIndex++;
-            updateItemNames(newItem, currentIndex);
-
-            // Gán sự kiện cho nút xóa mới
-            const removeButton = newItem.querySelector('.remove-item-btn');
-            removeButton.addEventListener('click', (e) => {
-                removeItem(e.target);
-            });
-
+            newItem.querySelector('.remove-item-btn')
+                .addEventListener('click', (e) => removeItem(e.currentTarget));
             itemsList.appendChild(newItem);
         });
 
-        // Gán sự kiện xóa cho các món đồ đã có sẵn (nếu có)
-        itemsList.querySelectorAll('.remove-item-btn').forEach(button => {
-            button.addEventListener('click', (e) => {
-                removeItem(e.target);
-            });
-        });
-
+        itemsList.querySelectorAll('.remove-item-btn')
+            .forEach(btn => btn.addEventListener('click', (e) => removeItem(e.currentTarget)));
     });
+
 </script>
 </body>
 

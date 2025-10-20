@@ -1,32 +1,40 @@
 package com.assignment.furniture_moving_service_swp391.model;
 
+import java.math.BigDecimal;
+
 public class VehicleType {
-    private int vehicleTypeID;
+
+    private Integer vehicleTypeId;
     private String name;
-    private double maxLoadFactor; // Quan trọng cho logic chọn xe
-    private double baseFee;       // Quan trọng cho logic tính BaseRate
+    private Double maxLoadFactor;
+    private Double baseFee;
     private String description;
+    private Integer numberOfVehicles;
+    private String status;
+    private Double maxCapacityLength;
 
-    // Constructor, Getters, và Setters
+    // ----- Constructors -----
+    public VehicleType() {}
 
-
-    public VehicleType() {
-    }
-
-    public VehicleType(int vehicleTypeID, String name, double maxLoadFactor, double baseFee, String description) {
-        this.vehicleTypeID = vehicleTypeID;
+    public VehicleType(Integer vehicleTypeId, String name, Double maxLoadFactor, Double baseFee,
+                       String description, Integer numberOfVehicles, String status, Double maxCapacityLength) {
+        this.vehicleTypeId = vehicleTypeId;
         this.name = name;
         this.maxLoadFactor = maxLoadFactor;
         this.baseFee = baseFee;
         this.description = description;
+        this.numberOfVehicles = numberOfVehicles;
+        this.status = status;
+        this.maxCapacityLength = maxCapacityLength;
     }
 
-    public int getVehicleTypeID() {
-        return vehicleTypeID;
+    // ----- Getters & Setters -----
+    public Integer getVehicleTypeId() {
+        return vehicleTypeId;
     }
 
-    public void setVehicleTypeID(int vehicleTypeID) {
-        this.vehicleTypeID = vehicleTypeID;
+    public void setVehicleTypeId(Integer vehicleTypeId) {
+        this.vehicleTypeId = vehicleTypeId;
     }
 
     public String getName() {
@@ -37,19 +45,19 @@ public class VehicleType {
         this.name = name;
     }
 
-    public double getMaxLoadFactor() {
+    public Double getMaxLoadFactor() {
         return maxLoadFactor;
     }
 
-    public void setMaxLoadFactor(double maxLoadFactor) {
+    public void setMaxLoadFactor(Double maxLoadFactor) {
         this.maxLoadFactor = maxLoadFactor;
     }
 
-    public double getBaseFee() {
+    public Double getBaseFee() {
         return baseFee;
     }
 
-    public void setBaseFee(double baseFee) {
+    public void setBaseFee(Double baseFee) {
         this.baseFee = baseFee;
     }
 
@@ -59,5 +67,29 @@ public class VehicleType {
 
     public void setDescription(String description) {
         this.description = description;
+    }
+
+    public Integer getNumberOfVehicles() {
+        return numberOfVehicles;
+    }
+
+    public void setNumberOfVehicles(Integer numberOfVehicles) {
+        this.numberOfVehicles = numberOfVehicles;
+    }
+
+    public String getStatus() {
+        return status;
+    }
+
+    public void setStatus(String status) {
+        this.status = status;
+    }
+
+    public Double getMaxCapacityLength() {
+        return maxCapacityLength;
+    }
+
+    public void setMaxCapacityLength(Double maxCapacityLength) {
+        this.maxCapacityLength = maxCapacityLength;
     }
 }
