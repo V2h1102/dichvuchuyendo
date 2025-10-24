@@ -1,0 +1,103 @@
+<%@ page contentType="text/html;charset=UTF-8" language="java" %>
+<%@ taglib prefix="c" uri="jakarta.tags.core" %>
+
+<!DOCTYPE html>
+<html lang="vi" dir="ltr">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <title>Admin - Thêm Người Dùng Mới</title>
+
+    <link rel="icon" href="${pageContext.request.contextPath}/assets/images/favicon.png" type="image/x-icon">
+    <link href="https://fonts.googleapis.com/css2?family=Public+Sans:wght@400;500;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/assets/css/vendors/bootstrap.css">
+    <link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/assets/css/remixicon.css">
+    <link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/assets/css/style.css">
+</head>
+
+<body>
+<div class="page-wrapper compact-wrapper" id="pageWrapper">
+
+    <div class="page-body-wrapper">
+
+
+        <div class="page-body">
+            <div class="container-fluid">
+                <div class="row">
+                    <div class="col-12">
+                        <div class="card">
+                            <div class="card-body">
+                                <div class="title-header option-title">
+                                    <h5>Thêm Người Dùng Mới</h5>
+                                </div>
+
+                                <form class="theme-form theme-form-2 mega-form" action="${pageContext.request.contextPath}/admin/add-user" method="post">
+                                    <div class="mb-4 row align-items-center">
+                                        <label class="form-label-title col-sm-2 mb-0">Họ và Tên</label>
+                                        <div class="col-sm-10">
+                                            <input class="form-control" type="text" name="fullName" placeholder="Nhập họ tên" required>
+                                        </div>
+                                    </div>
+                                    <div class="mb-4 row align-items-center">
+                                        <label class="form-label-title col-sm-2 mb-0">Email</label>
+                                        <div class="col-sm-10">
+                                            <input class="form-control" type="email" name="email" placeholder="Nhập email" required>
+                                        </div>
+                                    </div>
+                                    <div class="mb-4 row align-items-center">
+                                        <label class="form-label-title col-sm-2 mb-0">Số Điện Thoại</label>
+                                        <div class="col-sm-10">
+                                            <input class="form-control" type="tel" name="phone" placeholder="Nhập số điện thoại" required>
+                                        </div>
+                                    </div>
+                                    <div class="mb-4 row align-items-center">
+                                        <label class="form-label-title col-sm-2 mb-0">Mật khẩu</label>
+                                        <div class="col-sm-10">
+                                            <input class="form-control" type="password" name="password" placeholder="Nhập mật khẩu" required>
+                                        </div>
+                                    </div>
+                                    <div class="mb-4 row align-items-center">
+                                        <label class="form-label-title col-sm-2 mb-0">Vai Trò</label>
+                                        <div class="col-sm-10">
+                                            <select class="form-select" name="userType">
+                                                <option value="USER" selected>User</option>
+                                                <option value="STAFF">Staff</option>
+                                                <option value="ADMIN">Admin</option>
+                                            </select>
+                                        </div>
+                                    </div>
+                                    <div class="mb-4 row align-items-center">
+                                        <label class="form-label-title col-sm-2 mb-0">Trạng Thái</label>
+                                        <div class="col-sm-10">
+                                            <select class="form-select" name="isActive">
+                                                <option value="true" selected>Hoạt động</option>
+                                                <option value="false">Bị khóa</option>
+                                            </select>
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-sm-10 offset-sm-2">
+                                            <div class="d-flex gap-2">
+                                                <button type="submit" class="btn btn-primary">Thêm Người Dùng</button>
+                                                <a href="${pageContext.request.contextPath}/admin/all-users" class="btn btn-light">Hủy</a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="container-fluid">
+                <footer class="footer"><p class="mb-0 text-center">Copyright 2025 © MoveEasy</p></footer>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script src="${pageContext.request.contextPath}/assets/js/jquery-3.6.0.min.js"></script>
+<script src="${pageContext.request.contextPath}/assets/js/bootstrap/bootstrap.bundle.min.js"></script>
+<script src="${pageContext.request.contextPath}/assets/js/sidebar-menu.js"></script>
+<script src="${pageContext.request.contextPath}/assets/js/script.js"></script>
+</body>
+</html>

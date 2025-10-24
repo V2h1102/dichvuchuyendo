@@ -18,61 +18,45 @@ public class LoginServlet extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 
-        // ======================= BƯỚC 1: KIỂM TRA ĐẦU VÀO =======================
         String email = request.getParameter("email");
         String plainPassword = request.getParameter("password");
 
-        System.out.println("\n--- BẮT ĐẦU QUY TRÌNH LOGIN ---");
-        System.out.println("1. Dữ liệu nhận từ form:");
-        // Dấu ngoặc vuông [] giúp phát hiện khoảng trắng thừa
-        System.out.println("   - Email: [" + email + "]");
-        System.out.println("   - Mật khẩu: [" + plainPassword + "]");
-
-        // ======================= BƯỚC 2: TRUY VẤN DATABASE =======================
-        System.out.println("\n2. Bắt đầu truy vấn UserDAO...");
         UserDAO userDAO = new UserDAO();
         User user = userDAO.getUserByEmail(email);
 
-        if (user == null) {
-            System.out.println("   -> KẾT QUẢ: UserDAO không tìm thấy user nào với email này. Dừng lại.");
-            response.sendRedirect("login.jsp?error=true");
-            return; // Dừng thực thi ngay lập tức
-        } else {
-            System.out.println("   -> KẾT QUẢ: UserDAO đã tìm thấy user: " + user.getEmail());
-            System.out.println("      - Hash từ DB: [" + user.getPasswordHash() + "]");
-        }
+        // Kiểm tra user có tồn tại và mật khẩu có khớp không
+        if (user != null && BCrypt.checkpw(plainPassword, user.getPasswordHash())) {
 
-        // ======================= BƯỚC 3: SO SÁNH MẬT KHẨU =======================
-        System.out.println("\n3. Bắt đầu so sánh mật khẩu bằng BCrypt...");
-        boolean passwordMatch = false;
-        try {
-            passwordMatch = BCrypt.checkpw(plainPassword, user.getPasswordHash());
-            System.out.println("   -> KẾT QUẢ SO SÁNH: " + passwordMatch);
-        } catch (Exception e) {
-            System.out.println("   -> LỖI KHI SO SÁNH BCRYPT: " + e.getMessage());
-        }
-
-        // ======================= BƯỚC 4: XỬ LÝ KẾT QUẢ CUỐI CÙNG =======================
-        if (passwordMatch) {
-            System.out.println("\n4. ĐĂNG NHẬP THÀNH CÔNG. Chuyển hướng đến home.jsp.");
+            // Đăng nhập thành công, tạo session
             HttpSession session = request.getSession();
             session.setAttribute("user", user);
 
-            // Cập nhật thời gian đăng nhập cuối cùng (Tùy chọn)
-            // userDAO.updateLastLogin(user.getId());
+            // ===================================================================
+            // PHÂN QUYỀN DỰA TRÊN VAI TRÒ (userType)
+            // ===================================================================
+            String userType = user.getUserType();
 
-            response.sendRedirect("index1.jsp");
+            System.out.println("Đăng nhập thành công với vai trò: " + userType);
+
+            if ("ADMIN".equalsIgnoreCase(userType)) {
+                // Nếu là ADMIN, chuyển hướng đến trang quản trị
+                System.out.println("Chuyển hướng đến trang admin...");
+                response.sendRedirect(request.getContextPath() + "/admin/all-users");
+            } else {
+                // Nếu là CUSTOMER hoặc các vai trò khác, chuyển hướng đến trang chủ
+                System.out.println("Chuyển hướng đến trang chủ...");
+                response.sendRedirect(request.getContextPath() + "/index1.jsp"); // Hoặc index1.jsp tùy bạn
+            }
+
         } else {
-            System.out.println("\n4. ĐĂNG NHẬP THẤT BẠI. Chuyển hướng về login.jsp?error=true.");
+            // Đăng nhập thất bại
+            System.out.println("Đăng nhập thất bại. Chuyển hướng về trang login.");
             response.sendRedirect("login.jsp?error=true");
         }
-        System.out.println("--- KẾT THÚC QUY TRÌNH LOGIN ---\n");
     }
 
-    // Giữ nguyên doGet
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        // Nếu người dùng truy cập trực tiếp /login bằng GET, chỉ cần chuyển hướng họ đến trang jsp
         response.sendRedirect("login.jsp");
     }
 }

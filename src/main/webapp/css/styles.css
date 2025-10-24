@@ -23,7 +23,7 @@ body {
 .left-panel {
   display: none;
   width: 50%;
-  background-color: #3f3ff3;
+  background-color: #008b55;
   position: relative;
   overflow: hidden;
 }
@@ -56,7 +56,7 @@ body {
 }
 
 .logo-icon.mobile {
-  background-color: #3f3ff3;
+  background-color: #008b55;
   margin-right: 0;
   margin-bottom: 0.75rem;
 }
@@ -64,7 +64,7 @@ body {
 .logo-inner {
   width: 1rem;
   height: 1rem;
-  background-color: #3f3ff3;
+  background-color: #008b55;
   border-radius: 0.25rem;
 }
 
@@ -213,7 +213,7 @@ body {
 
 .form-input:focus {
   outline: none;
-  border-color: #3f3ff3;
+  border-color: #008b55;
 }
 
 .password-input-container {
@@ -274,7 +274,7 @@ body {
 }
 
 .forgot-link {
-  color: #3f3ff3;
+  color: #008b55;
   text-decoration: none;
   font-size: 0.875rem;
   transition: opacity 0.2s;
@@ -287,7 +287,7 @@ body {
 .submit-btn {
   width: 100%;
   height: 3rem;
-  background-color: #3f3ff3;
+  background-color: #008b55;
   color: white;
   border: none;
   border-radius: 0.5rem;
@@ -363,7 +363,7 @@ body {
 }
 
 .link {
-  color: #3f3ff3;
+  color: #008b55;
   text-decoration: none;
   font-weight: 500;
   transition: opacity 0.2s;
@@ -408,4 +408,59 @@ body {
   .social-buttons {
     grid-template-columns: 1fr;
   }
+}
+.password-input-container {
+    display: flex;
+    align-items: center;
+    width: 100%;
+}
+
+.password-input-container .form-input {
+    flex-grow: 1;
+    border-right: none;
+    border-top-right-radius: 0;
+    border-bottom-right-radius: 0;
+}
+
+.password-input-container .password-toggle {
+    flex-shrink: 0;
+    border: 1px solid #d1d5db;
+    border-left: none;
+    border-top-left-radius: 0;
+    border-bottom-left-radius: 0;
+    height: 46px; /* Chiều cao giống .form-input */
+    padding: 0 12px;
+}
+
+.page-body {
+    overflow-x: auto; /* Add horizontal scroll if content overflows */
+    min-width: 0;     /* Helps prevent flexbox/grid shrinking issues */
+}
+
+/* Ensure the direct container of the table allows overflow */
+.card-body .table-responsive {
+    overflow-x: auto !important; /* Force horizontal scroll */
+}
+
+/* Optional: Ensure the card itself doesn't shrink */
+.card.card-table {
+    min-width: fit-content; /* Make card at least as wide as its content */
+    width: 100%;
+}
+
+.sidebar-wrapper .sidebar-main #sidebar-menu .sidebar-links > .sidebar-list > .sidebar-link span {
+    font-size: 16px; /* Adjust this value as needed - e.g., 1.1rem, 16px */
+    font-weight: 500; /* Optional: Make text slightly bolder */
+}
+
+/* Optional: Increase padding if needed */
+.sidebar-wrapper .sidebar-main #sidebar-menu .sidebar-links > .sidebar-list > .sidebar-link {
+    padding-top: 12px;    /* Adjust as needed */
+    padding-bottom: 12px; /* Adjust as needed */
+}
+
+/* Optional: Increase icon size if needed */
+.sidebar-wrapper .sidebar-main #sidebar-menu .sidebar-links > .sidebar-list > .sidebar-link i {
+    font-size: 12px; /* Adjust icon size */
+    margin-right: 12px; /* Adjust spacing between icon and text */
 }
