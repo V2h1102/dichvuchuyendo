@@ -56,9 +56,9 @@
                                 <div class="p-2">
                                     <a href="#" class="flex items-center w-full px-3 py-2 text-sm text-card-foreground rounded-md hover:bg-muted">
                                         <i class="fas fa-user-circle w-5 mr-3 text-muted-foreground"></i>Hồ Sơ</a>
-                                    <a href="${pageContext.request.contextPath}/admin/all-users" class="block px-4 py-3 text-foreground hover:bg-muted transition-colors">
-                                        <i class="fas fa-tachometer-alt mr-2"></i>Admin Dashboard
-                                    </a>
+<%--                                    <a href="${pageContext.request.contextPath}/admin/all-users" class="block px-4 py-3 text-foreground hover:bg-muted transition-colors">--%>
+<%--                                        <i class="fas fa-tachometer-alt mr-2"></i>Admin Dashboard--%>
+<%--                                    </a>--%>
                                     <a href="/settings" class="block px-4 py-3 text-foreground hover:bg-muted transition-colors">
                                         <i class="fas fa-cog mr-2"></i>Cài Đặt
                                     </a>

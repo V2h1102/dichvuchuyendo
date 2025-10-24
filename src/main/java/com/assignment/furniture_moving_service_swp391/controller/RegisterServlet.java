@@ -45,7 +45,7 @@ public class RegisterServlet extends HttpServlet {
             newUser.setPasswordHash(hashedPassword); // Lưu mật khẩu đã được băm
             newUser.setUserType("USER"); // Đặt giá trị mặc định, ví dụ: "CUSTOMER"
             newUser.setActive(true); // Đặt giá trị mặc định
-
+            newUser.setLastLoginAt(new java.util.Date(System.currentTimeMillis()));
             // 5. Lưu người dùng mới vào database
             userDAO.createUser(newUser);
 
